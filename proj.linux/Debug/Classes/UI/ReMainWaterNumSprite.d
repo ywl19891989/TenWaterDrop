@@ -1,6 +1,6 @@
-Classes/UI/ClassicGameScene.d: \
- /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ClassicGameScene.cpp \
- /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ClassicGameScene.h \
+Classes/UI/ReMainWaterNumSprite.d: \
+ /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ReMainWaterNumSprite.cpp \
+ /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ReMainWaterNumSprite.h \
  ../../../../cocos2dx/include/cocos2d.h \
  ../../../../cocos2dx/include/ccConfig.h \
  ../../../../cocos2dx/platform/CCPlatformConfig.h \
@@ -175,13 +175,9 @@ Classes/UI/ClassicGameScene.d: \
  ../../../../cocos2dx/CCScheduler.h \
  ../../../../cocos2dx/support/data_support/uthash.h \
  ../../../../cocos2dx/support/component/CCComponent.h \
- ../../../../cocos2dx/support/component/CCComponentContainer.h \
- /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/ResourceName/ResourceName.h \
- /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/CoverScene.h \
- /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/WaterSprite.h \
- /home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ReMainWaterNumSprite.h
+ ../../../../cocos2dx/support/component/CCComponentContainer.h
 
-/home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ClassicGameScene.h:
+/home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ReMainWaterNumSprite.h:
 
 ../../../../cocos2dx/include/cocos2d.h:
 
@@ -536,11 +532,3 @@ Classes/UI/ClassicGameScene.d: \
 ../../../../cocos2dx/support/component/CCComponent.h:
 
 ../../../../cocos2dx/support/component/CCComponentContainer.h:
-
-/home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/ResourceName/ResourceName.h:
-
-/home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/CoverScene.h:
-
-/home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/WaterSprite.h:
-
-/home/hali/wenlong/cocos2d-x-2.2/projects/TenWaterDrop/Classes/UI/ReMainWaterNumSprite.h:
