@@ -39,7 +39,7 @@ bool CoverScene::init() {
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
 	CCMenuItemImage* classicItem = CCMenuItemImage::create(
-			Images::cover::classic_png, Images::cover::classic_down_png);
+			Images::cover::classic, Images::cover::classic_down);
 	menu->addChild(classicItem);
 	classicItem->setTarget(this, menu_selector(CoverScene::onClickBtn));
 	classicItem->setTag(0);
@@ -47,7 +47,7 @@ bool CoverScene::init() {
 	classicItem->setPosition(ccp(winSize.width / 2, 360));
 
 	CCMenuItemImage* upgradeItem = CCMenuItemImage::create(
-			Images::cover::shengji_png, Images::cover::shengji_down_png);
+			Images::cover::shengji, Images::cover::shengji_down);
 	menu->addChild(upgradeItem);
 	upgradeItem->setTarget(this, menu_selector(CoverScene::onClickBtn));
 	upgradeItem->setTag(1);

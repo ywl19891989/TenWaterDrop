@@ -1,110 +1,119 @@
-/*
- * ResourceName.h
- *
- *  Created on: 2013-11-13
- *      Author: hali
- */
+//
+//  ResourceName.h
+//  TenWaterDrop
+//
+//  Created by wenlong on 13-6-20.
+//
+//
 
-#ifndef RESOURCENAME_H_
-#define RESOURCENAME_H_
+#ifndef __TenWaterDrop__ResourceName__
+#define __TenWaterDrop__ResourceName__
 
+#define USING_NS_RES using namespace Resources
 
+ 
 namespace Resources {
-
-    extern const char * CloseSelected_png;
-
+    extern const char * CloseNormal;
+    extern const char * CloseSelected;
+    extern const char * HelloWorld;
+ 
     namespace Images {
-
-        namespace selectLevel {
-            extern const char * level6_png;
-            extern const char * level2_png;
-            extern const char * level3_png;
-            extern const char * level7_png;
-            extern const char * unlock_png;
-            extern const char * lock_png;
-            extern const char * level1_png;
-            extern const char * level10_png;
-            extern const char * level5_png;
-            extern const char * level9_png;
-            extern const char * level11_png;
-            extern const char * level4_png;
-            extern const char * level8_png;
-        }
-
+ 
         namespace common {
-            extern const char * back_down_png;
-            extern const char * musicoff_png;
-            extern const char * back_png;
-            extern const char * help_down_png;
-            extern const char * help_png;
-            extern const char * musicon_png;
+            extern const char * back;
+            extern const char * back_down;
+            extern const char * help;
+            extern const char * help_down;
+            extern const char * musicoff;
+            extern const char * musicon;
         }
-
+ 
         namespace cover {
-            extern const char * shengji_down_png;
-            extern const char * shengji_png;
-            extern const char * classic_down_png;
+            extern const char * classic;
+            extern const char * classic_down;
             extern const char * main_bg_jpg;
-            extern const char * classic_png;
+            extern const char * shengji;
+            extern const char * shengji_down;
         }
-
+ 
         namespace game {
-            extern const char * s19_png;
-            extern const char * icon_png;
-            extern const char * s2_png;
-            extern const char * drop2_png;
-            extern const char * s16_png;
-            extern const char * cont_png;
-            extern const char * level_png;
-            extern const char * s12_png;
-            extern const char * s11_png;
-            extern const char * s1_png;
-            extern const char * s7_png;
-            extern const char * east_png;
-            extern const char * west_png;
-            extern const char * s6_png;
-            extern const char * sback_png;
-            extern const char * north_png;
-            extern const char * cell_png;
-            extern const char * south_png;
-            extern const char * s17_png;
-            extern const char * tryagain_png;
-            extern const char * s13_png;
-            extern const char * drop3_png;
-            extern const char * s20_png;
-            extern const char * s9_png;
-            extern const char * s14_png;
-            extern const char * s4_png;
-            extern const char * s18_png;
+            extern const char * btn_continue;
+            extern const char * btn_next;
+            extern const char * btn_pause;
+            extern const char * btn_reset;
+            extern const char * btn_retry;
+            extern const char * cell;
+            extern const char * cont;
+            extern const char * dialogBg_lose;
+            extern const char * dialogBg_pause;
+            extern const char * dialogBg_win;
+            extern const char * drop1;
+            extern const char * drop2;
+            extern const char * drop3;
+            extern const char * drop4;
+            extern const char * east;
             extern const char * game_bg_jpg;
-            extern const char * drop1_png;
-            extern const char * drop4_png;
-            extern const char * s8_png;
-            extern const char * s15_png;
-            extern const char * s10_png;
-            extern const char * s5_png;
-            extern const char * s3_png;
+            extern const char * icon;
+            extern const char * level;
+            extern const char * north;
+            extern const char * s1;
+            extern const char * s10;
+            extern const char * s11;
+            extern const char * s12;
+            extern const char * s13;
+            extern const char * s14;
+            extern const char * s15;
+            extern const char * s16;
+            extern const char * s17;
+            extern const char * s18;
+            extern const char * s19;
+            extern const char * s2;
+            extern const char * s20;
+            extern const char * s3;
+            extern const char * s4;
+            extern const char * s5;
+            extern const char * s6;
+            extern const char * s7;
+            extern const char * s8;
+            extern const char * s9;
+            extern const char * sback;
+            extern const char * south;
+            extern const char * tryagain;
+            extern const char * upgrade_bg_jpg;
+            extern const char * west;
+        }
+ 
+        namespace selectLevel {
+            extern const char * level1;
+            extern const char * level10;
+            extern const char * level11;
+            extern const char * level2;
+            extern const char * level3;
+            extern const char * level4;
+            extern const char * level5;
+            extern const char * level6;
+            extern const char * level7;
+            extern const char * level8;
+            extern const char * level9;
+            extern const char * lock;
+            extern const char * unlock;
         }
     }
-
+ 
     namespace level {
-        extern const char * LevelPack10_xml;
-        extern const char * LevelPack9_xml;
-        extern const char * LevelPack11_xml;
-        extern const char * LevelPack7_xml;
-        extern const char * LevelPack5_xml;
-        extern const char * LevelPack2_xml;
         extern const char * LevelPack1_xml;
+        extern const char * LevelPack10_xml;
+        extern const char * LevelPack11_xml;
+        extern const char * LevelPack2_xml;
         extern const char * LevelPack3_xml;
         extern const char * LevelPack4_xml;
+        extern const char * LevelPack5_xml;
         extern const char * LevelPack6_xml;
+        extern const char * LevelPack7_xml;
         extern const char * LevelPack8_xml;
+        extern const char * LevelPack9_xml;
     }
-
-    extern const char * HelloWorld_png;
-    extern const char * CloseNormal_png;
-
 }
 
 
-#endif /* RESOURCENAME_H_ */
+#endif /* defined(__TenWaterDrop__ResourceName__) */

@@ -1,0 +1,1 @@
+python ./ResGenerater/ResGenrator.py -i ./Resources/ -o ./Classes/ResourceName/ -p TenWaterDrop -t ./ResGenerater

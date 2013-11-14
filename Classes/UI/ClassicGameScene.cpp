@@ -10,6 +10,7 @@
 #include "CoverScene.h"
 #include "WaterSprite.h"
 #include "ReMainWaterNumSprite.h"
+#include "LayoutUtil.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -39,17 +40,25 @@ bool ClassicGameScene::init() {
 
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
-	CCSprite* gridBg = CCSprite::create(Images::game::cell_png);
+	CCSprite* gridBg = CCSprite::create(Images::game::cell);
 	addChild(gridBg);
 	gridBg->setPosition(ccp(winSize.width / 2, winSize.height / 2 - 16));
 
 	CCMenuItemImage* backItem = CCMenuItemImage::create(
-			Images::common::back_png, Images::common::back_down_png);
+			Images::common::back, Images::common::back_down);
 	menu->addChild(backItem);
 	backItem->setTarget(this, menu_selector(ClassicGameScene::onClickBtn));
 	backItem->setTag(-1);
 	backItem->setAnchorPoint(ccp(1, 0));
-	backItem->setPosition(ccp(winSize.width - 5, 5));
+    LayoutUtil::layoutTo(backItem, 0, 1, bg, 0, 1, 4, -4);
+    
+    CCMenuItemImage* pauseItem = CCMenuItemImage::create(
+                                                        Images::game::btn_pause, Images::game::btn_pause);
+	menu->addChild(pauseItem);
+	pauseItem->setTarget(this, menu_selector(ClassicGameScene::onClickBtn));
+	pauseItem->setTag(-2);
+	pauseItem->setAnchorPoint(ccp(1, 0));
+    LayoutUtil::layoutTo(pauseItem, 1, 1, bg, 1, 1, -4, -4);
 
 	srand( time(NULL));
 
@@ -74,7 +83,7 @@ bool ClassicGameScene::init() {
 
 	float levelOffsetX = 24;
 
-	CCSprite* levelInfo = CCSprite::create(Images::game::level_png);
+	CCSprite* levelInfo = CCSprite::create(Images::game::level);
 	gridBg->addChild(levelInfo, 1);
 	levelInfo->setAnchorPoint(ccp(1, 0));
 	levelInfo->setPosition(ccp(gridSize.width - levelOffsetX, gridSize.height + 5));
