@@ -59,8 +59,6 @@ bool ClassicGameScene::init() {
 	resetItem->setTarget(this, menu_selector(ClassicGameScene::onClickBtn));
 	resetItem->setTag(-2);
     LayoutUtil::layoutTo(resetItem, 1, 1, bg, 1, 1, -4, -4);
-
-	srand( time(NULL));
     
     CCMenu* gridMenu = CCMenu::create();
     addChild(gridMenu, 0);
@@ -242,7 +240,7 @@ void ClassicGameScene::onExplodeEnd(WaterSprite *water){
         drop->setTag(water->getTag());
         
         LayoutUtil::layoutTo(drop, 1, 0.5, water, poss[i][0], poss[i][1]);
-        CCMoveBy* move = CCMoveBy::create(2, ccp(movPos[i][0], movPos[i][1]));
+        CCMoveBy* move = CCMoveBy::create(2.5, ccp(movPos[i][0], movPos[i][1]));
         drop->runAction(CCSequence::create(move, CCCallFuncN::create(this, callfuncN_selector(ClassicGameScene::removeDrop)), NULL));
         
         _dropArrays->addObject(drop);

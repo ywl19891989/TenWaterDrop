@@ -49,7 +49,14 @@ bool WaterSprite::init() {
 void WaterSprite::setWaterNum(int num) {
 	_waterNum = num;
 	for (int i = 0; i < 4; i++) {
+        _water[i]->stopAllActions();
 		_water[i]->setVisible( (i + 1) == _waterNum);
+        if((i + 1) == _waterNum){
+            _water[i]->setScale(0.8f);
+            CCScaleTo* scale = CCScaleTo::create(1.2, 1);
+            CCEaseElasticOut* ee = CCEaseElasticOut::create(scale, 0.18);
+            _water[i]->runAction(ee);
+        }
 	}
 }
 
