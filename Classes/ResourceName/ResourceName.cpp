@@ -40,16 +40,16 @@ namespace Resources {
             const char * btn_reset = "Images/game/btn_reset.png";
             const char * btn_retry = "Images/game/btn_retry.png";
             const char * cell = "Images/game/cell.png";
-            const char * cont = "Images/game/cont.png";
+            const char * classic_loseFg = "Images/game/classic_loseFg.png";
+            const char * classic_winFg = "Images/game/classic_winFg.png";
             const char * dialogBg_lose = "Images/game/dialogBg_lose.png";
             const char * dialogBg_pause = "Images/game/dialogBg_pause.png";
             const char * dialogBg_win = "Images/game/dialogBg_win.png";
-            const char * down_drop = "Images/game/down_drop.png";
+            const char * drop = "Images/game/drop.png";
             const char * drop_1 = "Images/game/drop_1.png";
             const char * drop_2 = "Images/game/drop_2.png";
             const char * drop_3 = "Images/game/drop_3.png";
             const char * drop_4 = "Images/game/drop_4.png";
-            const char * drop_east = "Images/game/drop_east.png";
             const char * explode_1 = "Images/game/explode_1.png";
             const char * explode_2 = "Images/game/explode_2.png";
             const char * explode_3 = "Images/game/explode_3.png";
@@ -57,7 +57,6 @@ namespace Resources {
             const char * game_bg_jpg = "Images/game/game_bg.jpg";
             const char * icon = "Images/game/icon.png";
             const char * level = "Images/game/level.png";
-            const char * north = "Images/game/north.png";
             const char * s1 = "Images/game/s1.png";
             const char * s10 = "Images/game/s10.png";
             const char * s11 = "Images/game/s11.png";
@@ -79,10 +78,11 @@ namespace Resources {
             const char * s8 = "Images/game/s8.png";
             const char * s9 = "Images/game/s9.png";
             const char * sback = "Images/game/sback.png";
-            const char * south = "Images/game/south.png";
-            const char * tryagain = "Images/game/tryagain.png";
             const char * upgrade_bg_jpg = "Images/game/upgrade_bg.jpg";
-            const char * west = "Images/game/west.png";
+            const char * wall_drop_1 = "Images/game/wall_drop_1.png";
+            const char * wall_drop_2 = "Images/game/wall_drop_2.png";
+            const char * wall_drop_3 = "Images/game/wall_drop_3.png";
+            const char * wall_drop_4 = "Images/game/wall_drop_4.png";
         }
  
         namespace selectLevel {

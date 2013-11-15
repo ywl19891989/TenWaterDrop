@@ -28,16 +28,45 @@ public:
     void onExplodeEnd(WaterSprite* water);
     
     void clearNode(cocos2d::CCNode* node);
+    
+    int getGridIndexByPos(cocos2d::CCPoint & pos);
+    
+    void detectDrops();
+    
+    bool isGridValid(int index);
+    bool hasWater();
+    void addGridWater(int index);
+    void setRemainWater(int remainWater);
+    
+    void removeDrop(cocos2d::CCSprite* drop);
+    
+    void showDropWall(int index, int rotation);
 
 private:
 
 	static const int ROW_NUM = 6;
 	static const int COL_NUM = 6;
 	static const int TOTAL_NUM = ROW_NUM * COL_NUM;
+    static const int OFFSET_X = 30;
+    static const int OFFSET_Y = 30;
+    static const int GRID_WIDTH = 52;
+    static const int GRID_HEIGHT = 52;
+    static const int NO_WATER = 0;
+    
+    static const int ROTATION_RIGHT = 0;
+    static const int ROTATION_LEFT = 180;
+    static const int ROTATION_DOWN = 90;
+    static const int ROTATION_UP = -90;
 
 	WaterSprite * _waters[TOTAL_NUM];
 	ReMainWaterNumSprite *_remainNumText;
 	int _waterNums[TOTAL_NUM], _remainWaterNum;
+    cocos2d::CCArray* _dropArrays;
+    cocos2d::CCSprite *_gridBg;
+    
+    cocos2d::CCNode *_winNode, *_loseNode;
+    
+    int _listenExplode;
 };
 
 #endif /* CLASSICGAMESCENE_H_ */

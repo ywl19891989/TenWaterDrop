@@ -43,16 +43,16 @@ namespace Resources {
             extern const char * btn_reset;
             extern const char * btn_retry;
             extern const char * cell;
-            extern const char * cont;
+            extern const char * classic_loseFg;
+            extern const char * classic_winFg;
             extern const char * dialogBg_lose;
             extern const char * dialogBg_pause;
             extern const char * dialogBg_win;
-            extern const char * down_drop;
+            extern const char * drop;
             extern const char * drop_1;
             extern const char * drop_2;
             extern const char * drop_3;
             extern const char * drop_4;
-            extern const char * drop_east;
             extern const char * explode_1;
             extern const char * explode_2;
             extern const char * explode_3;
@@ -60,7 +60,6 @@ namespace Resources {
             extern const char * game_bg_jpg;
             extern const char * icon;
             extern const char * level;
-            extern const char * north;
             extern const char * s1;
             extern const char * s10;
             extern const char * s11;
@@ -82,10 +81,11 @@ namespace Resources {
             extern const char * s8;
             extern const char * s9;
             extern const char * sback;
-            extern const char * south;
-            extern const char * tryagain;
             extern const char * upgrade_bg_jpg;
-            extern const char * west;
+            extern const char * wall_drop_1;
+            extern const char * wall_drop_2;
+            extern const char * wall_drop_3;
+            extern const char * wall_drop_4;
         }
  
         namespace selectLevel {

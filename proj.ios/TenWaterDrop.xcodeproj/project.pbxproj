@@ -243,6 +243,7 @@
 		5CA0A1591834976800C22BB2 /* UIUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1571834976800C22BB2 /* UIUtil.cpp */; };
 		5CA0A15D1834990000C22BB2 /* MenuDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */; };
 		5CA0A16118349F0200C22BB2 /* TestWaterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */; };
+		5CA0A1671835C8FE00C22BB2 /* ClassicResultDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -756,6 +757,8 @@
 		5CA0A15C1834990000C22BB2 /* MenuDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDispatch.h; sourceTree = "<group>"; };
 		5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestWaterScene.cpp; sourceTree = "<group>"; };
 		5CA0A15F18349ED000C22BB2 /* TestWaterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWaterScene.h; sourceTree = "<group>"; };
+		5CA0A1641835C8E400C22BB2 /* ClassicResultDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicResultDialog.h; sourceTree = "<group>"; };
+		5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClassicResultDialog.cpp; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1749,6 +1752,7 @@
 		5CA0A13B1834814F00C22BB2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5CA0A1621835C89E00C22BB2 /* dialog */,
 				5CA0A13C1834814F00C22BB2 /* ClassicGameScene.cpp */,
 				5CA0A13D1834814F00C22BB2 /* ClassicGameScene.h */,
 				5CA0A13E1834814F00C22BB2 /* CoverScene.cpp */,
@@ -1788,6 +1792,15 @@
 				5CA0A15C1834990000C22BB2 /* MenuDispatch.h */,
 			);
 			path = Widgets;
+			sourceTree = "<group>";
+		};
+		5CA0A1621835C89E00C22BB2 /* dialog */ = {
+			isa = PBXGroup;
+			children = (
+				5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */,
+				5CA0A1641835C8E400C22BB2 /* ClassicResultDialog.h */,
+			);
+			path = dialog;
 			sourceTree = "<group>";
 		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
@@ -2081,6 +2094,7 @@
 				379BB9A017F03F3700829B88 /* CCBatchNode.cpp in Sources */,
 				379BB9A117F03F3700829B88 /* CCDecorativeDisplay.cpp in Sources */,
 				379BB9A217F03F3700829B88 /* CCDisplayFactory.cpp in Sources */,
+				5CA0A1671835C8FE00C22BB2 /* ClassicResultDialog.cpp in Sources */,
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,

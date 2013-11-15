@@ -79,7 +79,7 @@ void WaterSprite::showExplode(){
         }
     }
     CCAnimation* animation = CCAnimation::createWithSpriteFrames(arr);
-    animation->setDelayPerUnit(0.08);
+    animation->setDelayPerUnit(0.06);
     CCAnimate* animate = CCAnimate::create(animation);
     CCSequence* action = CCSequence::create(animate, CCCallFunc::create(this, callfunc_selector(WaterSprite::explodeEnd)), NULL);
     _waterExplode->runAction(action);
