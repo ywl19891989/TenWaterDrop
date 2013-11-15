@@ -244,6 +244,7 @@
 		5CA0A15D1834990000C22BB2 /* MenuDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */; };
 		5CA0A1671835C8FE00C22BB2 /* ClassicResultDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */; };
 		5CA0A16B1835D31200C22BB2 /* StageModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1691835D31200C22BB2 /* StageModel.cpp */; };
+		5CA0A16E1835E95300C22BB2 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A16C1835E95300C22BB2 /* Constants.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -759,6 +760,8 @@
 		5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClassicResultDialog.cpp; sourceTree = "<group>"; };
 		5CA0A1691835D31200C22BB2 /* StageModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageModel.cpp; sourceTree = "<group>"; };
 		5CA0A16A1835D31200C22BB2 /* StageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageModel.h; sourceTree = "<group>"; };
+		5CA0A16C1835E95300C22BB2 /* Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
+		5CA0A16D1835E95300C22BB2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1780,6 +1783,8 @@
 			children = (
 				5CA0A1571834976800C22BB2 /* UIUtil.cpp */,
 				5CA0A1581834976800C22BB2 /* UIUtil.h */,
+				5CA0A16C1835E95300C22BB2 /* Constants.cpp */,
+				5CA0A16D1835E95300C22BB2 /* Constants.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2024,6 +2029,7 @@
 				15A3DA421682F826002FB0C5 /* CCNode+CCBRelativePositioning.cpp in Sources */,
 				5CA0A152183481ED00C22BB2 /* LayoutUtil.cpp in Sources */,
 				15A3DA431682F826002FB0C5 /* CCNodeLoader.cpp in Sources */,
+				5CA0A16E1835E95300C22BB2 /* Constants.cpp in Sources */,
 				15A3DA441682F826002FB0C5 /* CCNodeLoaderLibrary.cpp in Sources */,
 				15A3DA451682F826002FB0C5 /* CCParticleSystemQuadLoader.cpp in Sources */,
 				15A3DA461682F826002FB0C5 /* CCScale9SpriteLoader.cpp in Sources */,

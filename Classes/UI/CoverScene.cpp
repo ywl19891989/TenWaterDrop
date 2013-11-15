@@ -8,6 +8,9 @@
 #include "CoverScene.h"
 #include "ResourceName.h"
 #include "ClassicGameScene.h"
+#include "LayoutUtil.h"
+#include "UIUtil.h"
+#include "Constants.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -33,28 +36,61 @@ bool CoverScene::init() {
 
 	CCMenu* menu = CCMenu::create();
 	addChild(menu);
-	menu->setAnchorPoint(ccp(0, 0));
-	menu->setPosition(ccp(0, 0));
+    LayoutUtil::layoutTo(menu, 0, 0, bg, 0, 0);
 
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-
-	CCMenuItemImage* classicItem = CCMenuItemImage::create(
-			Images::cover::classic, Images::cover::classic_down);
-	menu->addChild(classicItem);
-	classicItem->setTarget(this, menu_selector(CoverScene::onClickBtn));
-	classicItem->setTag(0);
-	classicItem->setAnchorPoint(ccp(0.5, 0));
-	classicItem->setPosition(ccp(winSize.width / 2, 360));
-
+	
 	CCMenuItemImage* upgradeItem = CCMenuItemImage::create(
 			Images::cover::shengji, Images::cover::shengji_down);
 	menu->addChild(upgradeItem);
 	upgradeItem->setTarget(this, menu_selector(CoverScene::onClickBtn));
 	upgradeItem->setTag(1);
-	upgradeItem->setAnchorPoint(ccp(0.5, 0));
-	upgradeItem->setPosition(ccp(winSize.width / 2, 210));
+	LayoutUtil::layoutTo(upgradeItem, 0.5, 0, bg, 0.5, 0, 10, 200);
+    
+    CCMenuItemImage* classicItem = CCMenuItemImage::create(
+                                                           Images::cover::classic, Images::cover::classic_down);
+	menu->addChild(classicItem);
+	classicItem->setTarget(this, menu_selector(CoverScene::onClickBtn));
+	classicItem->setTag(0);
+	LayoutUtil::layoutTo(classicItem, 0.5, 0, upgradeItem, 0.5, 1, 0, 30);
+    
+    _enableMusic = UIUtil::getSingleImageBtn(Images::common::musicoff);
+	menu->addChild(_enableMusic);
+	_enableMusic->setTarget(this, menu_selector(CoverScene::enableMusic));
+	LayoutUtil::layoutTo(_enableMusic, 0, 0, bg, 0, 0, 5, 5);
+    
+    _disableMusic = UIUtil::getSingleImageBtn(Images::common::musicon);
+	menu->addChild(_disableMusic);
+	_disableMusic->setTarget(this, menu_selector(CoverScene::disableMusic));
+	LayoutUtil::layoutToCenter(_disableMusic, _enableMusic);
+    
+    _disableMusic->setVisible(Constants::isMusicEnabled());
+    _enableMusic->setVisible(!Constants::isMusicEnabled());
+    
+    CCMenuItem* help = UIUtil::getSingleImageBtn(Images::common::help);
+	menu->addChild(help);
+	help->setTarget(this, menu_selector(CoverScene::onClickHelp));
+	LayoutUtil::layoutTo(help, 1, 0, bg, 1, 0, -5, 5);
 
 	return true;
+}
+
+void CoverScene::update(float dt) {
+    _disableMusic->setVisible(Constants::isMusicEnabled());
+    _enableMusic->setVisible(!Constants::isMusicEnabled());
+}
+
+void CoverScene::onClickHelp(cocos2d::CCNode *node){
+    
+}
+
+void CoverScene::enableMusic(cocos2d::CCNode *node){
+    Constants::enableMusic();
+    update(0);
+}
+
+void CoverScene::disableMusic(cocos2d::CCNode *node){
+    Constants::disableMusic();
+    update(0);
 }
 
 void CoverScene::onClickBtn(cocos2d::CCNode* node) {

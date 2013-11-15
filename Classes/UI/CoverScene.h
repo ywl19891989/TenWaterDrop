@@ -18,8 +18,17 @@ public:
 	CREATE_FUNC( CoverScene);
 
 	bool init();
+    
+    void update(float dt);
 
 	void onClickBtn(cocos2d::CCNode* node);
+    
+    void onClickHelp(cocos2d::CCNode* node);
+    void enableMusic(cocos2d::CCNode* node);
+    void disableMusic(cocos2d::CCNode* node);
+    
+private:
+    cocos2d::CCMenuItem *_enableMusic, *_disableMusic;
 };
 
 #endif /* COVERSCENE_H_ */

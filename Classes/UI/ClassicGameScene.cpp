@@ -13,6 +13,7 @@
 #include "LayoutUtil.h"
 #include "UIUtil.h"
 #include "ClassicResultDialog.h"
+#include "Constants.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -97,17 +98,45 @@ bool ClassicGameScene::init() {
 	addChild(_remainNumText, 1);
 	LayoutUtil::layoutTo(_remainNumText, 1, 0.5, levelInfo, 0, 0.5, -25, 0);
     
-    _remainWaterNum = 10;
+    _enableMusic = UIUtil::getSingleImageBtn(Images::common::musicoff);
+	menu->addChild(_enableMusic);
+	_enableMusic->setTarget(this, menu_selector(ClassicGameScene::enableMusic));
+	LayoutUtil::layoutTo(_enableMusic, 0, 0, bg, 0, 0, 5, 5);
+    
+    _disableMusic = UIUtil::getSingleImageBtn(Images::common::musicon);
+	menu->addChild(_disableMusic);
+	_disableMusic->setTarget(this, menu_selector(ClassicGameScene::disableMusic));
+	LayoutUtil::layoutToCenter(_disableMusic, _enableMusic);
+    
+    _disableMusic->setVisible(Constants::isMusicEnabled());
+    _enableMusic->setVisible(!Constants::isMusicEnabled());
+    
+    _remainWaterNum = 1;
     _remainNumText->setRemainWaterNum(_remainWaterNum);
     
     _dropArrays = CCArray::create();
     _dropArrays->retain();
     
-    _listenExplode = 0;
+    _remainClearNode = 0;
     
     scheduleUpdate();
 
 	return true;
+}
+
+void ClassicGameScene::updateMusic() {
+    _disableMusic->setVisible(Constants::isMusicEnabled());
+    _enableMusic->setVisible(!Constants::isMusicEnabled());
+}
+
+void ClassicGameScene::enableMusic(cocos2d::CCNode *node){
+    Constants::enableMusic();
+    updateMusic();
+}
+
+void ClassicGameScene::disableMusic(cocos2d::CCNode *node){
+    Constants::disableMusic();
+    updateMusic();
 }
 
 void ClassicGameScene::update(float dt){
@@ -122,11 +151,16 @@ void ClassicGameScene::update(float dt){
         }
     }
     
-    if(_listenExplode == 0 && _dropArrays->count() == 0 && (_remainWaterNum == 0 || hasNoGridWater)){
+    if(_remainClearNode == 0 && _dropArrays->count() == 0 && (_remainWaterNum == 0 || hasNoGridWater)){
         bool isWin = hasNoGridWater;
         ClassicResultDialog* dialog = ClassicResultDialog::create(isWin);
         addChild(dialog, 100);
-        LayoutUtil::layoutToParentCenter(dialog, this);
+        
+        dialog->setScale(0.75);
+        dialog->setAnchorPoint(ccp(0.5, 0.5));
+        LayoutUtil::layoutToParentCenter(dialog, this, 0, -10);
+        dialog->runAction(CCEaseElasticOut::create(CCScaleTo::create(0.6, 1)));
+        
         unscheduleUpdate();
     }
 }
@@ -201,6 +235,7 @@ void ClassicGameScene::showDropWall(int startIndex, int rotation){
     animation->setDelayPerUnit(0.1);
     CCAnimate* animate = CCAnimate::create(animation);
     wallDrop->runAction(CCSequence::create(animate, CCCallFuncN::create(this, callfuncN_selector(ClassicGameScene::clearNode)), NULL));
+    _remainClearNode++;
 }
 
 int ClassicGameScene::getGridIndexByPos(cocos2d::CCPoint & pos){
@@ -225,8 +260,6 @@ int ClassicGameScene::getGridIndexByPos(cocos2d::CCPoint & pos){
 }
 
 void ClassicGameScene::onExplodeEnd(WaterSprite *water){
-    
-    _listenExplode--;
     
     float poss[4][2] = { {0.5, 1}, {0.5, 0}, {1, 0.5}, {0, 0.5}};
     float rotation[4] = {ROTATION_UP, ROTATION_DOWN, ROTATION_RIGHT, ROTATION_LEFT};
@@ -260,7 +293,7 @@ void ClassicGameScene::addGridWater(int index){
     _remainNumText->setRemainWaterNum(_remainWaterNum);
     if(_waterNums[index] == 5){
         _waters[index]->showExplode();
-        _listenExplode++;
+        _remainClearNode += 4;
         _waterNums[index] = 0;
         _waters[index] = NULL;
     }else{
@@ -281,6 +314,7 @@ void ClassicGameScene::removeDrop(cocos2d::CCSprite *drop){
 
 void ClassicGameScene::clearNode(cocos2d::CCNode *node){
     node->removeFromParent();
+    _remainClearNode--;
 }
 
 void ClassicGameScene::onClickGrid(cocos2d::CCNode *node){

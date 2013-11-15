@@ -41,6 +41,11 @@ public:
     void removeDrop(cocos2d::CCSprite* drop);
     
     void showDropWall(int index, int rotation);
+    
+    void enableMusic(cocos2d::CCNode* node);
+    void disableMusic(cocos2d::CCNode* node);
+    
+    void updateMusic();
 
 private:
 
@@ -66,7 +71,9 @@ private:
     
     cocos2d::CCNode *_winNode, *_loseNode;
     
-    int _listenExplode;
+    cocos2d::CCMenuItem *_enableMusic, *_disableMusic;
+    
+    int _remainClearNode;
 };
 
 #endif /* CLASSICGAMESCENE_H_ */
