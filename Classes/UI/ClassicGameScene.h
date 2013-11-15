@@ -9,10 +9,10 @@
 #define CLASSICGAMESCENE_H_
 
 #include "cocos2d.h"
+#include "WaterSprite.h"
 
-class WaterSprite;
 class ReMainWaterNumSprite;
-class ClassicGameScene : public cocos2d::CCScene{
+class ClassicGameScene : public cocos2d::CCScene, public ExplodeListener{
 public:
 	ClassicGameScene();
 	virtual ~ClassicGameScene();
@@ -21,6 +21,13 @@ public:
 	bool init();
 
 	void onClickBtn(cocos2d::CCNode* node);
+    void onClickGrid(cocos2d::CCNode* node);
+    
+    void update(float dt);
+    
+    void onExplodeEnd(WaterSprite* water);
+    
+    void clearNode(cocos2d::CCNode* node);
 
 private:
 
@@ -29,8 +36,8 @@ private:
 	static const int TOTAL_NUM = ROW_NUM * COL_NUM;
 
 	WaterSprite * _waters[TOTAL_NUM];
-	ReMainWaterNumSprite *_remainNum;
-	int _waterNums[TOTAL_NUM];
+	ReMainWaterNumSprite *_remainNumText;
+	int _waterNums[TOTAL_NUM], _remainWaterNum;
 };
 
 #endif /* CLASSICGAMESCENE_H_ */

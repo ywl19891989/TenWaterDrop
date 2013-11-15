@@ -240,6 +240,9 @@
 		5CA0A14C1834816900C22BB2 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 5CA0A14A1834816900C22BB2 /* Images */; };
 		5CA0A14D1834816900C22BB2 /* level in Resources */ = {isa = PBXBuildFile; fileRef = 5CA0A14B1834816900C22BB2 /* level */; };
 		5CA0A152183481ED00C22BB2 /* LayoutUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A150183481ED00C22BB2 /* LayoutUtil.cpp */; };
+		5CA0A1591834976800C22BB2 /* UIUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1571834976800C22BB2 /* UIUtil.cpp */; };
+		5CA0A15D1834990000C22BB2 /* MenuDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */; };
+		5CA0A16118349F0200C22BB2 /* TestWaterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -747,6 +750,12 @@
 		5CA0A14B1834816900C22BB2 /* level */ = {isa = PBXFileReference; lastKnownFileType = folder; path = level; sourceTree = "<group>"; };
 		5CA0A150183481ED00C22BB2 /* LayoutUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutUtil.cpp; sourceTree = "<group>"; };
 		5CA0A151183481ED00C22BB2 /* LayoutUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutUtil.h; sourceTree = "<group>"; };
+		5CA0A1571834976800C22BB2 /* UIUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIUtil.cpp; sourceTree = "<group>"; };
+		5CA0A1581834976800C22BB2 /* UIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtil.h; sourceTree = "<group>"; };
+		5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuDispatch.cpp; sourceTree = "<group>"; };
+		5CA0A15C1834990000C22BB2 /* MenuDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDispatch.h; sourceTree = "<group>"; };
+		5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestWaterScene.cpp; sourceTree = "<group>"; };
+		5CA0A15F18349ED000C22BB2 /* TestWaterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWaterScene.h; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1716,10 +1725,12 @@
 		5CA0A1351834814F00C22BB2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5CA0A15A1834990000C22BB2 /* Widgets */,
 				5CA0A14F183481ED00C22BB2 /* LayoutUtil */,
 				5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */,
 				5CA0A1371834814F00C22BB2 /* AppDelegate.h */,
 				5CA0A1381834814F00C22BB2 /* ResourceName */,
+				5CA0A1561834973400C22BB2 /* Utils */,
 				5CA0A13B1834814F00C22BB2 /* UI */,
 			);
 			name = Classes;
@@ -1746,6 +1757,8 @@
 				5CA0A1411834814F00C22BB2 /* ReMainWaterNumSprite.h */,
 				5CA0A1421834814F00C22BB2 /* WaterSprite.cpp */,
 				5CA0A1431834814F00C22BB2 /* WaterSprite.h */,
+				5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */,
+				5CA0A15F18349ED000C22BB2 /* TestWaterScene.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1757,6 +1770,24 @@
 				5CA0A151183481ED00C22BB2 /* LayoutUtil.h */,
 			);
 			path = LayoutUtil;
+			sourceTree = "<group>";
+		};
+		5CA0A1561834973400C22BB2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5CA0A1571834976800C22BB2 /* UIUtil.cpp */,
+				5CA0A1581834976800C22BB2 /* UIUtil.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5CA0A15A1834990000C22BB2 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */,
+				5CA0A15C1834990000C22BB2 /* MenuDispatch.h */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
@@ -1875,6 +1906,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA0A16118349F0200C22BB2 /* TestWaterScene.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
 				15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */,
 				15A3D9011682F7D5002FB0C5 /* b2CollideEdge.cpp in Sources */,
@@ -1944,6 +1976,7 @@
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
+				5CA0A1591834976800C22BB2 /* UIUtil.cpp in Sources */,
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
@@ -2036,6 +2069,7 @@
 				379BB99617F03F3700829B88 /* CCActionFrameEasing.cpp in Sources */,
 				379BB99717F03F3700829B88 /* CCActionManager.cpp in Sources */,
 				379BB99817F03F3700829B88 /* CCActionNode.cpp in Sources */,
+				5CA0A15D1834990000C22BB2 /* MenuDispatch.cpp in Sources */,
 				379BB99917F03F3700829B88 /* CCActionObject.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,

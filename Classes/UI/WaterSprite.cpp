@@ -7,6 +7,7 @@
 
 #include "WaterSprite.h"
 #include "ResourceName.h"
+#include "LayoutUtil.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -26,16 +27,19 @@ bool WaterSprite::init() {
 		return false;
 	}
 
-	char temp[64];
-
 	setContentSize(CCSizeMake(50, 50));
 
 	for (int i = 0; i < 4; i++) {
-		sprintf(temp, "Images/game/drop%d.png", 4 - i);
-		_water[i] = CCSprite::create(temp);
+		sprintf(_tempStr, "Images/game/drop_%d.png", i + 1);
+		_water[i] = CCSprite::create(_tempStr);
 		addChild(_water[i]);
-		_water[i]->setPosition(ccp(25, 25));
+        LayoutUtil::layoutToParentCenter(_water[i], this);
 	}
+    
+    _waterExplode = CCSprite::create(Images::game::explode_1);
+    addChild(_waterExplode);
+    LayoutUtil::layoutToParentCenter(_waterExplode, this);
+    _waterExplode->setVisible(false);
 
 	setWaterNum(0);
 
@@ -47,4 +51,45 @@ void WaterSprite::setWaterNum(int num) {
 	for (int i = 0; i < 4; i++) {
 		_water[i]->setVisible( (i + 1) == _waterNum);
 	}
+}
+
+void WaterSprite::addWater(){
+    if(_waterNum == 4){
+        showExplode();
+    }else{
+        setWaterNum(_waterNum + 1);
+    }
+}
+
+void WaterSprite::showExplode(){
+    setWaterNum(0);
+    
+    _waterExplode->setVisible(true);
+    
+    CCTextureCache* textureCache = CCTextureCache::sharedTextureCache();
+    CCArray* arr = CCArray::create();
+    for (int i = 0; i < 10; i++) {
+        sprintf(_tempStr, "Images/game/explode_%d.png", i + 1);
+        CCTexture2D* tex = textureCache->addImage(_tempStr);
+        if(tex){
+            CCSpriteFrame* frame = CCSpriteFrame::createWithTexture(tex, CCRect(0, 0, tex->getContentSize().width, tex->getContentSize().height));
+            arr->addObject(frame);
+        }else{
+            break;
+        }
+    }
+    CCAnimation* animation = CCAnimation::createWithSpriteFrames(arr);
+    animation->setDelayPerUnit(0.08);
+    CCAnimate* animate = CCAnimate::create(animation);
+    CCSequence* action = CCSequence::create(animate, CCCallFunc::create(this, callfunc_selector(WaterSprite::explodeEnd)), NULL);
+    _waterExplode->runAction(action);
+}
+
+void WaterSprite::setExplodeListener(ExplodeListener *listener){
+    _explodeListener = listener;
+}
+
+void WaterSprite::explodeEnd(){
+    _waterExplode->setVisible(false);
+    _explodeListener->onExplodeEnd(this);
 }

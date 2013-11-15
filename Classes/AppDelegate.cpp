@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "CoverScene.h"
+#include "TestWaterScene.h"
 
 USING_NS_CC;
 
@@ -28,6 +29,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     CoverScene *pScene = CoverScene::create();
+//    TestWaterScene *pScene = TestWaterScene::create();
 
     // run
     pDirector->runWithScene(pScene);
