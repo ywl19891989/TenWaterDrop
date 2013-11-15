@@ -11,6 +11,8 @@
 #include "LayoutUtil.h"
 #include "UIUtil.h"
 #include "Constants.h"
+#include "LevelGameScene.h"
+#include "SelectLevelScene.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -97,8 +99,16 @@ void CoverScene::onClickBtn(cocos2d::CCNode* node) {
 	int tag = node->getTag();
 
 	if (tag == 0) {
-		CCDirector::sharedDirector()->replaceScene(ClassicGameScene::create());
+        ClassicGameScene* classicScene = ClassicGameScene::create();
+        
+        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, classicScene);
+        
+        CCDirector::sharedDirector()->replaceScene(trans);
 	} else if (tag == 1) {
-
+        SelectStageScene* selectStage = SelectStageScene::create();
+        
+        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectStage);
+        
+        CCDirector::sharedDirector()->replaceScene(trans);
 	}
 }

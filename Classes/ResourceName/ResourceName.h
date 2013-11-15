@@ -26,6 +26,7 @@ namespace Resources {
             extern const char * help_down;
             extern const char * musicoff;
             extern const char * musicon;
+            extern const char * numBg;
         }
  
         namespace cover {
@@ -89,6 +90,7 @@ namespace Resources {
         }
  
         namespace selectLevel {
+            extern const char * icon_arrow;
             extern const char * level1;
             extern const char * level10;
             extern const char * level11;

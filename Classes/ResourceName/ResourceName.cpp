@@ -23,6 +23,7 @@ namespace Resources {
             const char * help_down = "Images/common/help_down.png";
             const char * musicoff = "Images/common/musicoff.png";
             const char * musicon = "Images/common/musicon.png";
+            const char * numBg = "Images/common/numBg.png";
         }
  
         namespace cover {
@@ -86,6 +87,7 @@ namespace Resources {
         }
  
         namespace selectLevel {
+            const char * icon_arrow = "Images/selectLevel/icon_arrow.png";
             const char * level1 = "Images/selectLevel/level1.png";
             const char * level10 = "Images/selectLevel/level10.png";
             const char * level11 = "Images/selectLevel/level11.png";

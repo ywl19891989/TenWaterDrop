@@ -332,8 +332,16 @@ void ClassicGameScene::onClickBtn(CCNode* node) {
 	int tag = node->getTag();
 
 	if (tag == -1) {
-		CCDirector::sharedDirector()->replaceScene(CoverScene::create());
+		CoverScene* cover = CoverScene::create();
+        
+        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, cover);
+        
+        CCDirector::sharedDirector()->replaceScene(trans);
 	}else if (tag == -2){
-        CCDirector::sharedDirector()->replaceScene(ClassicGameScene::create());
+        ClassicGameScene* classicScene = ClassicGameScene::create();
+        
+        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, classicScene);
+        
+        CCDirector::sharedDirector()->replaceScene(trans);
     }
 }

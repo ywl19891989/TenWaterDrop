@@ -243,8 +243,10 @@
 		5CA0A1591834976800C22BB2 /* UIUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1571834976800C22BB2 /* UIUtil.cpp */; };
 		5CA0A15D1834990000C22BB2 /* MenuDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */; };
 		5CA0A1671835C8FE00C22BB2 /* ClassicResultDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */; };
-		5CA0A16B1835D31200C22BB2 /* StageModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1691835D31200C22BB2 /* StageModel.cpp */; };
 		5CA0A16E1835E95300C22BB2 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A16C1835E95300C22BB2 /* Constants.cpp */; };
+		5CA0A1711836031000C22BB2 /* LevelUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A16F1836031000C22BB2 /* LevelUtil.cpp */; };
+		5CA0A17418360A1B00C22BB2 /* LevelGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A17218360A1B00C22BB2 /* LevelGameScene.cpp */; };
+		5CA0A17918360A9000C22BB2 /* SelectLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A17818360A9000C22BB2 /* SelectLevelScene.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -758,10 +760,14 @@
 		5CA0A15C1834990000C22BB2 /* MenuDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDispatch.h; sourceTree = "<group>"; };
 		5CA0A1641835C8E400C22BB2 /* ClassicResultDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicResultDialog.h; sourceTree = "<group>"; };
 		5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClassicResultDialog.cpp; sourceTree = "<group>"; };
-		5CA0A1691835D31200C22BB2 /* StageModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageModel.cpp; sourceTree = "<group>"; };
-		5CA0A16A1835D31200C22BB2 /* StageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageModel.h; sourceTree = "<group>"; };
 		5CA0A16C1835E95300C22BB2 /* Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
 		5CA0A16D1835E95300C22BB2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5CA0A16F1836031000C22BB2 /* LevelUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelUtil.cpp; sourceTree = "<group>"; };
+		5CA0A1701836031000C22BB2 /* LevelUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUtil.h; sourceTree = "<group>"; };
+		5CA0A17218360A1B00C22BB2 /* LevelGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelGameScene.cpp; sourceTree = "<group>"; };
+		5CA0A17318360A1B00C22BB2 /* LevelGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameScene.h; sourceTree = "<group>"; };
+		5CA0A17618360A6E00C22BB2 /* SelectLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLevelScene.h; sourceTree = "<group>"; };
+		5CA0A17818360A9000C22BB2 /* SelectLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectLevelScene.cpp; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1731,7 +1737,6 @@
 		5CA0A1351834814F00C22BB2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5CA0A1681835D2FC00C22BB2 /* Model */,
 				5CA0A15A1834990000C22BB2 /* Widgets */,
 				5CA0A14F183481ED00C22BB2 /* LayoutUtil */,
 				5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */,
@@ -1756,13 +1761,17 @@
 		5CA0A13B1834814F00C22BB2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5CA0A1621835C89E00C22BB2 /* dialog */,
 				5CA0A13C1834814F00C22BB2 /* ClassicGameScene.cpp */,
 				5CA0A13D1834814F00C22BB2 /* ClassicGameScene.h */,
 				5CA0A13E1834814F00C22BB2 /* CoverScene.cpp */,
 				5CA0A13F1834814F00C22BB2 /* CoverScene.h */,
+				5CA0A1621835C89E00C22BB2 /* dialog */,
+				5CA0A17218360A1B00C22BB2 /* LevelGameScene.cpp */,
+				5CA0A17318360A1B00C22BB2 /* LevelGameScene.h */,
 				5CA0A1401834814F00C22BB2 /* ReMainWaterNumSprite.cpp */,
 				5CA0A1411834814F00C22BB2 /* ReMainWaterNumSprite.h */,
+				5CA0A17818360A9000C22BB2 /* SelectLevelScene.cpp */,
+				5CA0A17618360A6E00C22BB2 /* SelectLevelScene.h */,
 				5CA0A1421834814F00C22BB2 /* WaterSprite.cpp */,
 				5CA0A1431834814F00C22BB2 /* WaterSprite.h */,
 			);
@@ -1785,6 +1794,8 @@
 				5CA0A1581834976800C22BB2 /* UIUtil.h */,
 				5CA0A16C1835E95300C22BB2 /* Constants.cpp */,
 				5CA0A16D1835E95300C22BB2 /* Constants.h */,
+				5CA0A16F1836031000C22BB2 /* LevelUtil.cpp */,
+				5CA0A1701836031000C22BB2 /* LevelUtil.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1805,15 +1816,6 @@
 				5CA0A1641835C8E400C22BB2 /* ClassicResultDialog.h */,
 			);
 			path = dialog;
-			sourceTree = "<group>";
-		};
-		5CA0A1681835D2FC00C22BB2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5CA0A1691835D31200C22BB2 /* StageModel.cpp */,
-				5CA0A16A1835D31200C22BB2 /* StageModel.h */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
@@ -2046,6 +2048,7 @@
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,
+				5CA0A17418360A1B00C22BB2 /* LevelGameScene.cpp in Sources */,
 				15A3DA531682F826002FB0C5 /* CCInvocation.cpp in Sources */,
 				15A3DA541682F826002FB0C5 /* CCScale9Sprite.cpp in Sources */,
 				15A3DA551682F826002FB0C5 /* CCEditBox.cpp in Sources */,
@@ -2070,6 +2073,7 @@
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
+				5CA0A17918360A9000C22BB2 /* SelectLevelScene.cpp in Sources */,
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
@@ -2084,7 +2088,6 @@
 				1A8F3B7B175E05DA00049216 /* RegionAttachment.cpp in Sources */,
 				1A8F3B7C175E05DA00049216 /* Skeleton.cpp in Sources */,
 				1A8F3B7D175E05DA00049216 /* SkeletonData.cpp in Sources */,
-				5CA0A16B1835D31200C22BB2 /* StageModel.cpp in Sources */,
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
@@ -2141,6 +2144,7 @@
 				379BB9C117F03F3700829B88 /* UICheckBox.cpp in Sources */,
 				379BB9C217F03F3700829B88 /* UIImageView.cpp in Sources */,
 				379BB9C317F03F3700829B88 /* UILabel.cpp in Sources */,
+				5CA0A1711836031000C22BB2 /* LevelUtil.cpp in Sources */,
 				379BB9C417F03F3700829B88 /* UILabelAtlas.cpp in Sources */,
 				379BB9C517F03F3700829B88 /* UILabelBMFont.cpp in Sources */,
 				379BB9C617F03F3700829B88 /* UILoadingBar.cpp in Sources */,

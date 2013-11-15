@@ -19,6 +19,8 @@ public:
     
     static void init();
     
+    static const float REPLACE_SCENE_TIME;
+    
 private:
     static bool _isMusicEnabled;
     static const char * MUSICENABLE_KEY;

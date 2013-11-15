@@ -13,6 +13,7 @@ USING_NS_CC;
 
 bool Constants::_isMusicEnabled = true;
 const char * Constants::MUSICENABLE_KEY = "constants_musicEnabled";
+const float Constants::REPLACE_SCENE_TIME = 0.5f;
 
 Constants::Constants(){
     
