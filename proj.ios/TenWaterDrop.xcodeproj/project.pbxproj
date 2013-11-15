@@ -242,7 +242,6 @@
 		5CA0A152183481ED00C22BB2 /* LayoutUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A150183481ED00C22BB2 /* LayoutUtil.cpp */; };
 		5CA0A1591834976800C22BB2 /* UIUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1571834976800C22BB2 /* UIUtil.cpp */; };
 		5CA0A15D1834990000C22BB2 /* MenuDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */; };
-		5CA0A16118349F0200C22BB2 /* TestWaterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */; };
 		5CA0A1671835C8FE00C22BB2 /* ClassicResultDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -755,8 +754,6 @@
 		5CA0A1581834976800C22BB2 /* UIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtil.h; sourceTree = "<group>"; };
 		5CA0A15B1834990000C22BB2 /* MenuDispatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuDispatch.cpp; sourceTree = "<group>"; };
 		5CA0A15C1834990000C22BB2 /* MenuDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDispatch.h; sourceTree = "<group>"; };
-		5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestWaterScene.cpp; sourceTree = "<group>"; };
-		5CA0A15F18349ED000C22BB2 /* TestWaterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWaterScene.h; sourceTree = "<group>"; };
 		5CA0A1641835C8E400C22BB2 /* ClassicResultDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicResultDialog.h; sourceTree = "<group>"; };
 		5CA0A1661835C8FE00C22BB2 /* ClassicResultDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClassicResultDialog.cpp; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
@@ -1761,8 +1758,6 @@
 				5CA0A1411834814F00C22BB2 /* ReMainWaterNumSprite.h */,
 				5CA0A1421834814F00C22BB2 /* WaterSprite.cpp */,
 				5CA0A1431834814F00C22BB2 /* WaterSprite.h */,
-				5CA0A15E18349ED000C22BB2 /* TestWaterScene.cpp */,
-				5CA0A15F18349ED000C22BB2 /* TestWaterScene.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1919,7 +1914,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CA0A16118349F0200C22BB2 /* TestWaterScene.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
 				15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */,
 				15A3D9011682F7D5002FB0C5 /* b2CollideEdge.cpp in Sources */,
