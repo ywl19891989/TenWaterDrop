@@ -110,10 +110,28 @@ bool ClassicGameScene::init() {
     _dropArrays->retain();
     
     _remainClearNode = 0;
-    
+
     scheduleUpdate();
 
 	return true;
+}
+
+void ClassicGameScene::onEnter(){
+    CCScene::onEnter();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->addDelegate(this);
+}
+
+void ClassicGameScene::onExit(){
+    CCScene::onExit();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->removeDelegate(this);
+}
+
+void ClassicGameScene::keyBackClicked(){
+    CoverScene* cover = CoverScene::create();
+    
+    CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, cover);
+    
+    CCDirector::sharedDirector()->replaceScene(trans);
 }
 
 void ClassicGameScene::update(float dt){
@@ -309,11 +327,7 @@ void ClassicGameScene::onClickBtn(CCNode* node) {
 	int tag = node->getTag();
 
 	if (tag == -1) {
-		CoverScene* cover = CoverScene::create();
-        
-        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, cover);
-        
-        CCDirector::sharedDirector()->replaceScene(trans);
+		keyBackClicked();
 	}else if (tag == -2){
         ClassicGameScene* classicScene = ClassicGameScene::create();
         

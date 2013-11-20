@@ -106,6 +106,24 @@ bool SelectLevelScene::init(){
     return true;
 }
 
+void SelectLevelScene::onEnter(){
+    CCScene::onEnter();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->addDelegate(this);
+}
+
+void SelectLevelScene::onExit(){
+    CCScene::onExit();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->removeDelegate(this);
+}
+
+void SelectLevelScene::keyBackClicked(){
+    CoverScene* cover = CoverScene::create();
+    
+    CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, cover);
+    
+    CCDirector::sharedDirector()->replaceScene(trans);
+}
+
 void SelectLevelScene::setCurLevel(int level){
     _curLevel = level - 1;
     updateLevel();
@@ -116,11 +134,7 @@ void SelectLevelScene::onClickBtn(cocos2d::CCNode *node){
     int tag = node->getTag();
     
     if(tag == -1){
-        CoverScene* cover = CoverScene::create();
-    
-        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, cover);
-    
-        CCDirector::sharedDirector()->replaceScene(trans);
+        keyBackClicked();
     }else if (tag == 1){
         SelectStageScene* selectLevel = SelectStageScene::create(_curLevel + 1);
         
@@ -281,15 +295,29 @@ bool SelectStageScene::init(int level){
     return true;
 }
 
+void SelectStageScene::onEnter(){
+    CCScene::onEnter();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->addDelegate(this);
+}
+
+void SelectStageScene::onExit(){
+    CCScene::onExit();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->removeDelegate(this);
+}
+
+void SelectStageScene::keyBackClicked(){
+    SelectLevelScene* selectLevel= SelectLevelScene::create();
+    selectLevel->setCurLevel(_selectLevel);
+    CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectLevel);
+    CCDirector::sharedDirector()->replaceScene(trans);
+}
+
 void SelectStageScene::onClickBtn(cocos2d::CCNode *node){
     
     int tag = node->getTag();
     
     if(tag == -1){
-        SelectLevelScene* selectLevel= SelectLevelScene::create();
-        selectLevel->setCurLevel(_selectLevel);
-        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectLevel);
-        CCDirector::sharedDirector()->replaceScene(trans);
+        keyBackClicked();
     }else if (tag >= 0){
         CCLOG("clicked %d level %d, stage %d", tag, _selectLevel, tag + 1);
         LevelGameScene* levelGame = LevelGameScene::create();

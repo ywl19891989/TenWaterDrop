@@ -179,6 +179,24 @@ bool LevelGameScene::init() {
 	return true;
 }
 
+void LevelGameScene::onEnter(){
+    CCScene::onEnter();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->addDelegate(this);
+}
+
+void LevelGameScene::onExit(){
+    CCScene::onExit();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->removeDelegate(this);
+}
+
+void LevelGameScene::keyBackClicked(){
+    SelectStageScene* selectStage = SelectStageScene::create(_curLevel);
+    CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectStage);
+    
+    CCDirector::sharedDirector()->replaceScene(trans);
+}
+
+
 void LevelGameScene::setData(int level, int stage){
     
     _curLevel = level;
@@ -418,10 +436,7 @@ void LevelGameScene::onClickBtn(CCNode* node) {
 	int tag = node->getTag();
     
 	if (tag == -1) {
-		SelectStageScene* selectStage = SelectStageScene::create(_curLevel);
-        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectStage);
-        
-        CCDirector::sharedDirector()->replaceScene(trans);
+		keyBackClicked();
 	}else if (tag == -2){
         LevelGameScene* classicScene = LevelGameScene::create();
         classicScene->setData(_curLevel, _curStage);

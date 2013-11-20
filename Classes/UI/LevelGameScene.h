@@ -13,7 +13,7 @@
 #include "WaterSprite.h"
 
 class ReMainWaterNumSprite;
-class LevelGameScene : public cocos2d::CCScene, public ExplodeListener{
+class LevelGameScene : public cocos2d::CCScene, public ExplodeListener, public cocos2d::CCKeypadDelegate{
 public:
 	LevelGameScene();
 	virtual ~LevelGameScene();
@@ -47,6 +47,10 @@ public:
     
     void nextStage(cocos2d::CCNode* node);
     void retryStage(cocos2d::CCNode* node);
+    
+    virtual void keyBackClicked();
+    virtual void onEnter();
+    virtual void onExit();
     
 private:
     

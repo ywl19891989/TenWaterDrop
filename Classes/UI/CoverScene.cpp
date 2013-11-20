@@ -76,6 +76,20 @@ bool CoverScene::init() {
 	return true;
 }
 
+void CoverScene::onEnter(){
+    CCScene::onEnter();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->addDelegate(this);
+}
+
+void CoverScene::onExit(){
+    CCScene::onExit();
+    CCDirector::sharedDirector()->getKeypadDispatcher()->removeDelegate(this);
+}
+
+void CoverScene::keyBackClicked(){
+    CCDirector::sharedDirector()->end();
+}
+
 void CoverScene::update(float dt) {
     _disableMusic->setVisible(Constants::isMusicEnabled());
     _enableMusic->setVisible(!Constants::isMusicEnabled());

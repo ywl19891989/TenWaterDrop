@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 
-class SelectLevelScene : public cocos2d::CCScene {
+class SelectLevelScene : public cocos2d::CCScene, public cocos2d::CCKeypadDelegate{
 public:
     CREATE_FUNC(SelectLevelScene);
     bool init();
@@ -25,13 +25,17 @@ public:
     
     void setCurLevel(int stage);
     
+    virtual void keyBackClicked();
+    virtual void onEnter();
+    virtual void onExit();
+    
 private:
     int _curLevel;
     cocos2d::CCSprite *_stageImg, *_stageClickedImg, *_stageClickedImgMask;
     cocos2d::CCLabelTTF *_stageIndexText;
 };
 
-class SelectStageScene : public cocos2d::CCScene {
+class SelectStageScene : public cocos2d::CCScene, public cocos2d::CCKeypadDelegate {
 public:
     static SelectStageScene* create(int level);
     bool init(int stage);
@@ -42,6 +46,10 @@ public:
     void next();
     
     void updateStage();
+    
+    virtual void keyBackClicked();
+    virtual void onEnter();
+    virtual void onExit();
     
 private:
     int _selectLevel, _userCurStage, _curPage, _totalPages;

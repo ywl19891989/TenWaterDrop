@@ -12,7 +12,7 @@
 #include "WaterSprite.h"
 
 class ReMainWaterNumSprite;
-class ClassicGameScene : public cocos2d::CCScene, public ExplodeListener{
+class ClassicGameScene : public cocos2d::CCScene, public ExplodeListener, public cocos2d::CCKeypadDelegate{
 public:
 	ClassicGameScene();
 	virtual ~ClassicGameScene();
@@ -41,6 +41,10 @@ public:
     void removeDrop(cocos2d::CCSprite* drop);
     
     void showDropWall(int index, int rotation);
+    
+    virtual void keyBackClicked();
+    virtual void onEnter();
+    virtual void onExit();
 
 private:
 
