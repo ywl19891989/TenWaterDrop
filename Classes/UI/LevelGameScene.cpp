@@ -155,6 +155,23 @@ bool LevelGameScene::init() {
     LayoutUtil::layoutToParentCenter(_loseNode, this, 0, -10);
     _loseNode->setVisible(false);
     
+    _stageText = CCLabelTTF::create("关卡: 01/11", "arial-bold", 35);
+    _stageText->setColor(ccBLACK);
+    addChild(_stageText, 1);
+    LayoutUtil::layoutTo(_stageText, 0.5, 0, _gridBg, 0.5, 1, 0, 90);
+    
+    _topLevelText = CCLabelTTF::create("11", "arial-bold", 28);
+    _topLevelText->setAnchorPoint(ccp(1, 0.5));
+    _topLevelText->setColor(ccBLACK);
+    addChild(_topLevelText, 1);
+    LayoutUtil::layoutTo(_topLevelText, 1, 0.5, levelInfo, 1, 0.75, 10, 0);
+    
+    _curLevelText = CCLabelTTF::create("1", "arial-bold", 28);
+    _curLevelText->setAnchorPoint(ccp(1, 0.5));
+    _curLevelText->setColor(ccBLACK);
+    addChild(_curLevelText, 1);
+    LayoutUtil::layoutTo(_curLevelText, 1, 0.5, levelInfo, 1, 0.25, 10, 0);
+    
     _remainClearNode = 0;
     
     scheduleUpdate();
@@ -167,6 +184,7 @@ void LevelGameScene::setData(int level, int stage){
     _curLevel = level;
     _curStage = stage;
     
+    int totalStageCount = LevelUtil::getLevelStageCount(_curLevel);
     StageInfo* info = LevelUtil::getLevelStageInfo(level, stage);
     
     _remainWaterNum = info->tapCounts;
@@ -187,6 +205,17 @@ void LevelGameScene::setData(int level, int stage){
         _waterNums[index] = val;
         _waters[index]->setWaterNum(_waterNums[index]);
     }
+    
+    char temp[32];
+    
+    sprintf(temp, "难度: %02d/11", _curLevel);
+    _stageText->setString(temp);
+    
+    sprintf(temp, "%d", _curStage);
+    _curLevelText->setString(temp);
+    
+    sprintf(temp, "%d", totalStageCount);
+    _topLevelText->setString(temp);
 }
 
 void LevelGameScene::update(float dt){

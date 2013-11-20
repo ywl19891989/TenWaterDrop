@@ -73,6 +73,8 @@ private:
     cocos2d::CCNode *_winNode, *_loseNode;
     
     int _remainClearNode, _curStage, _curLevel;
+    
+    cocos2d::CCLabelTTF *_stageText, *_topLevelText, *_curLevelText;
 };
 
 #endif /* defined(__TenWaterDrop__LevelGameScene__) */

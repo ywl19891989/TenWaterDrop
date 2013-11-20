@@ -221,8 +221,8 @@ bool SelectStageScene::init(int level){
         
         _gridTexts[i] = CCLabelTTF::create("1", "arial", 32);
         _gridTexts[i]->setColor(ccBLACK);
-        _grids[i]->addChild(_gridTexts[i], 1);
-        LayoutUtil::layoutToParentCenter(_gridTexts[i], _grids[i]);
+        addChild(_gridTexts[i], 9);
+        LayoutUtil::layoutToCenter(_gridTexts[i], _grids[i]);
         
         _gridLocks[i] = UIUtil::getSingleImageBtn(Images::selectLevel::lock);
         menu->addChild(_gridLocks[i]);
@@ -331,6 +331,12 @@ void SelectStageScene::updateStage(){
         
         _gridTexts[i]->setString(temp);
         
+        if(index + 1 <= _userCurStage){
+            _gridTexts[i]->setColor(ccBLACK);
+        }else if(index + 1 > _userCurStage && index + 1 <= totalCount){
+            _gridTexts[i]->setColor(ccRED);
+        }
+        _gridTexts[i]->setVisible(index + 1 <= totalCount);
         _grids[i]->setVisible(index + 1 <= _userCurStage);
         _gridLocks[i]->setVisible(index + 1 > _userCurStage && index < totalCount);
         _grids[i]->setTag(index);
