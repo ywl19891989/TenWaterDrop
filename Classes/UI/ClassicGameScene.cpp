@@ -267,7 +267,6 @@ bool ClassicGameScene::isGridValid(int index){
 
 void ClassicGameScene::addGridWater(int index){
     _waterNums[index]++;
-    _remainNumText->setRemainWaterNum(_remainWaterNum);
     if(_waterNums[index] == 5){
         _waters[index]->showExplode();
         _remainClearNode += 4;
@@ -280,6 +279,7 @@ void ClassicGameScene::addGridWater(int index){
 
 void ClassicGameScene::setRemainWater(int remainWater){
     _remainWaterNum = remainWater;
+    _remainNumText->setRemainWaterNum(_remainWaterNum);
 }
 
 void ClassicGameScene::removeDrop(cocos2d::CCSprite *drop){

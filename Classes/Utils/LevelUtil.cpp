@@ -36,8 +36,12 @@ void LevelUtil::setUserCurLevelStage(int level, int stage){
     sprintf(temp, "user_level_%d_stage", level);
     
     CCUserDefault* save = CCUserDefault::sharedUserDefault();
-    save->setIntegerForKey(temp, stage);
-    CCLOG("set %s, %d", temp, stage);
+    
+    int oldStage = getUserCurLevelStage(level);
+    if(oldStage < stage){
+        save->setIntegerForKey(temp, stage);
+        CCLOG("set %s, %d", temp, stage);
+    }
 }
 
 int LevelUtil::getLevelCount(){

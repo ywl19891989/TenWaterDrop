@@ -17,6 +17,7 @@
 #include "Constants.h"
 #include "MusicBtn.h"
 #include "LevelUtil.h"
+#include "MenuDispatch.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -118,11 +119,13 @@ bool LevelGameScene::init() {
     _winNode->addChild(winBg, -1);
     LayoutUtil::layoutToParentCenter(winBg, _winNode);
     
-    CCMenu* winMenu = CCMenu::create();
+    MenuDispatch* winMenu = MenuDispatch::create();
+    winMenu->setIsSwallowAll(true);
     _winNode->addChild(winMenu, 1);
     LayoutUtil::layoutTo(winMenu, 0, 0, winBg, 0, 0);
     
     CCMenuItem* winNext = UIUtil::getSingleImageBtn(Images::game::btn_next);
+    winMenu->registerBtn(winNext);
     winMenu->addChild(winNext);
     winNext->setTarget(this, menu_selector(LevelGameScene::nextStage));
     LayoutUtil::layoutTo(winNext, 0.5, 0, winBg, 0.5, 0, 10, 50);
@@ -138,11 +141,13 @@ bool LevelGameScene::init() {
     _loseNode->addChild(loseBg, -1);
     LayoutUtil::layoutToParentCenter(loseBg, _loseNode);
     
-    CCMenu* loseMenu = CCMenu::create();
+    MenuDispatch* loseMenu = MenuDispatch::create();
+    loseMenu->setIsSwallowAll(true);
     _loseNode->addChild(loseMenu, 1);
     LayoutUtil::layoutTo(loseMenu, 0, 0, loseBg, 0, 0);
     
     CCMenuItem* loseRetry = UIUtil::getSingleImageBtn(Images::game::btn_retry);
+    loseMenu->registerBtn(loseRetry);
     loseMenu->addChild(loseRetry);
     loseRetry->setTarget(this, menu_selector(LevelGameScene::retryStage));
     LayoutUtil::layoutTo(loseRetry, 0.5, 0, loseBg, 0.5, 0, 10, 50);
@@ -342,7 +347,6 @@ bool LevelGameScene::isGridValid(int index){
 
 void LevelGameScene::addGridWater(int index){
     _waterNums[index]++;
-    _remainNumText->setRemainWaterNum(_remainWaterNum);
     if(_waterNums[index] == 5){
         _waters[index]->showExplode();
         _remainClearNode += 4;
@@ -355,6 +359,7 @@ void LevelGameScene::addGridWater(int index){
 
 void LevelGameScene::setRemainWater(int remainWater){
     _remainWaterNum = remainWater;
+    _remainNumText->setRemainWaterNum(_remainWaterNum);
 }
 
 void LevelGameScene::removeDrop(cocos2d::CCSprite *drop){
