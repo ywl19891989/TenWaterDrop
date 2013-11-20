@@ -6,11 +6,31 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
-LOCAL_SRC_FILES := hellocpp/main.cpp \
-                   ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+LOCAL_SRC_FILES := 	hellocpp/main.cpp \
+                   	../../Classes//AppDelegate.cpp \
+					../../Classes//LayoutUtil/LayoutUtil.cpp \
+					../../Classes//ResourceName/ResourceName.cpp \
+					../../Classes//UI/ClassicGameScene.cpp \
+					../../Classes//UI/CoverScene.cpp \
+					../../Classes//UI/GridSprite.cpp \
+					../../Classes//UI/LevelGameScene.cpp \
+					../../Classes//UI/MusicBtn.cpp \
+					../../Classes//UI/ReMainWaterNumSprite.cpp \
+					../../Classes//UI/SelectLevelScene.cpp \
+					../../Classes//UI/WaterSprite.cpp \
+					../../Classes//UI/dialog/ClassicResultDialog.cpp \
+					../../Classes//Utils/Constants.cpp \
+					../../Classes//Utils/LevelUtil.cpp \
+					../../Classes//Utils/UIUtil.cpp \
+					../../Classes//Widgets/MenuDispatch.cpp 
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
+					$(LOCAL_PATH)/../../Classes/LayoutUtil \
+					$(LOCAL_PATH)/../../Classes/ResourceName \
+					$(LOCAL_PATH)/../../Classes/UI \
+					$(LOCAL_PATH)/../../Classes/UI/dialog \
+					$(LOCAL_PATH)/../../Classes/Utils \
+					$(LOCAL_PATH)/../../Classes/Widgets
 
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static

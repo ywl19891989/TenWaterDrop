@@ -1,0 +1,7 @@
+*.o
+*.d
+*.a
+*.jar
+*/bin/*
+*/assets/*
+*.dex
