@@ -11,10 +11,10 @@
 
 USING_NS_CC;
 
-std::vector<LevelInfo>* LevelUtil::_stages[11] = {NULL};
+std::vector<LevelInfo>* LevelUtil::_stages[LEVEL_COUNT] = {NULL};
 
 void LevelUtil::loadStage(int stage){
-    if(stage > 0 && stage <= 11 && _stages[stage - 1] == NULL){
+    if(stage > 0 && stage <= LEVEL_COUNT && _stages[stage - 1] == NULL){
         readInStage(stage);
     }
 }
@@ -40,14 +40,14 @@ void LevelUtil::setUserCurStageLevel(int stage, int level){
 }
 
 int LevelUtil::getStageCount(){
-    return 11;
+    return LEVEL_COUNT;
 }
 
 int LevelUtil::getStageLevelCount(int stage){
     
     loadStage(stage);
     
-    if(stage > 0 && stage <= 11){
+    if(stage > 0 && stage <= LEVEL_COUNT){
         return _stages[stage - 1]->size();
     }
     
@@ -118,8 +118,6 @@ void LevelUtil::readInStage(int stage){
         
         while (NULL != curNode)
         {
-            CCLOG("name %s", curNode->Name());
-            
             info.level = atoi(curNode->Attribute("number"));
             info.tapCounts = atoi(curNode->Attribute("tapsCount"));
             info.complexity = atoi(curNode->Attribute("complexity"));

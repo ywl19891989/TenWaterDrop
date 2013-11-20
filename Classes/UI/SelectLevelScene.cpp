@@ -14,6 +14,7 @@
 #include "Constants.h"
 #include "LevelUtil.h"
 #include "cocos-ext.h"
+#include "MusicBtn.h"
 
 USING_NS_CC;
 USING_NS_RES;
@@ -94,6 +95,10 @@ bool SelectStageScene::init(){
     title->setColor(ccBLACK);
     addChild(title, 1);
     LayoutUtil::layoutTo(title, 0.5, 0, _stageIndexText, 0.5, 1, 0, 20);
+    
+    MusicBtn* musicBtn = MusicBtn::create();
+    addChild(musicBtn, 1);
+	LayoutUtil::layoutTo(musicBtn, 0, 0, bg, 0, 0, 5, 5);
     
     _curStage = 0;
     
@@ -272,6 +277,10 @@ bool SelectLevelScene::init(int stage){
     
     sprintf(temp, "难度:%02d/11", _selectStage);
     subTitleText->setString(temp);
+    
+    MusicBtn* musicBtn = MusicBtn::create();
+    addChild(musicBtn, 1);
+	LayoutUtil::layoutTo(musicBtn, 0, 0, bg, 0, 0, 5, 5);
     
     return true;
 }

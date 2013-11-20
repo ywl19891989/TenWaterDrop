@@ -231,6 +231,7 @@
 		379BB9D217F03F3700829B88 /* sconscript in Resources */ = {isa = PBXBuildFile; fileRef = 379BB98D17F03F3700829B88 /* sconscript */; };
 		379BB9D317F03F3700829B88 /* CCSGUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* CCSGUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* CCSSceneReader.cpp */; };
+		5C986B0F183C5C4600714A2A /* MusicBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C986B0D183C5C4600714A2A /* MusicBtn.cpp */; };
 		5CA0A1441834814F00C22BB2 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */; };
 		5CA0A1451834814F00C22BB2 /* ResourceName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1391834814F00C22BB2 /* ResourceName.cpp */; };
 		5CA0A1461834814F00C22BB2 /* ClassicGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A13C1834814F00C22BB2 /* ClassicGameScene.cpp */; };
@@ -738,6 +739,8 @@
 		379BB99217F03F3700829B88 /* CCSGUIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSGUIReader.h; sourceTree = "<group>"; };
 		379BB99317F03F3700829B88 /* CCSSceneReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSSceneReader.cpp; sourceTree = "<group>"; };
 		379BB99417F03F3700829B88 /* CCSSceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSSceneReader.h; sourceTree = "<group>"; };
+		5C986B0D183C5C4600714A2A /* MusicBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicBtn.cpp; sourceTree = "<group>"; };
+		5C986B0E183C5C4600714A2A /* MusicBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicBtn.h; sourceTree = "<group>"; };
 		5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		5CA0A1371834814F00C22BB2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CA0A1391834814F00C22BB2 /* ResourceName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceName.cpp; sourceTree = "<group>"; };
@@ -1774,6 +1777,8 @@
 				5CA0A17618360A6E00C22BB2 /* SelectLevelScene.h */,
 				5CA0A1421834814F00C22BB2 /* WaterSprite.cpp */,
 				5CA0A1431834814F00C22BB2 /* WaterSprite.h */,
+				5C986B0D183C5C4600714A2A /* MusicBtn.cpp */,
+				5C986B0E183C5C4600714A2A /* MusicBtn.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2114,6 +2119,7 @@
 				5CA0A1671835C8FE00C22BB2 /* ClassicResultDialog.cpp in Sources */,
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
+				5C986B0F183C5C4600714A2A /* MusicBtn.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				379BB9A617F03F3700829B88 /* CCArmatureDataManager.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,

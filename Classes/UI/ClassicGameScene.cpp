@@ -14,6 +14,7 @@
 #include "UIUtil.h"
 #include "ClassicResultDialog.h"
 #include "Constants.h"
+#include "MusicBtn.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -98,18 +99,9 @@ bool ClassicGameScene::init() {
 	addChild(_remainNumText, 1);
 	LayoutUtil::layoutTo(_remainNumText, 1, 0.5, levelInfo, 0, 0.5, -25, 0);
     
-    _enableMusic = UIUtil::getSingleImageBtn(Images::common::musicoff);
-	menu->addChild(_enableMusic);
-	_enableMusic->setTarget(this, menu_selector(ClassicGameScene::enableMusic));
-	LayoutUtil::layoutTo(_enableMusic, 0, 0, bg, 0, 0, 5, 5);
-    
-    _disableMusic = UIUtil::getSingleImageBtn(Images::common::musicon);
-	menu->addChild(_disableMusic);
-	_disableMusic->setTarget(this, menu_selector(ClassicGameScene::disableMusic));
-	LayoutUtil::layoutToCenter(_disableMusic, _enableMusic);
-    
-    _disableMusic->setVisible(Constants::isMusicEnabled());
-    _enableMusic->setVisible(!Constants::isMusicEnabled());
+    MusicBtn* musicBtn = MusicBtn::create();
+    addChild(musicBtn, 1);
+	LayoutUtil::layoutTo(musicBtn, 0, 0, bg, 0, 0, 5, 5);
     
     _remainWaterNum = 1;
     _remainNumText->setRemainWaterNum(_remainWaterNum);
@@ -122,21 +114,6 @@ bool ClassicGameScene::init() {
     scheduleUpdate();
 
 	return true;
-}
-
-void ClassicGameScene::updateMusic() {
-    _disableMusic->setVisible(Constants::isMusicEnabled());
-    _enableMusic->setVisible(!Constants::isMusicEnabled());
-}
-
-void ClassicGameScene::enableMusic(cocos2d::CCNode *node){
-    Constants::enableMusic();
-    updateMusic();
-}
-
-void ClassicGameScene::disableMusic(cocos2d::CCNode *node){
-    Constants::disableMusic();
-    updateMusic();
 }
 
 void ClassicGameScene::update(float dt){

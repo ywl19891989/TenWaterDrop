@@ -35,7 +35,10 @@ public:
     static LevelInfo* getStageLevelInfo(int stage, int level);
 
 private:
-    static std::vector<LevelInfo>* _stages[11];
+    
+    static const int LEVEL_COUNT = 11;
+    
+    static std::vector<LevelInfo>* _stages[LEVEL_COUNT];
     
     static void readInStage(int stage);
 };

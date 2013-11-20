@@ -41,11 +41,6 @@ public:
     void removeDrop(cocos2d::CCSprite* drop);
     
     void showDropWall(int index, int rotation);
-    
-    void enableMusic(cocos2d::CCNode* node);
-    void disableMusic(cocos2d::CCNode* node);
-    
-    void updateMusic();
 
 private:
 
@@ -70,8 +65,6 @@ private:
     cocos2d::CCSprite *_gridBg;
     
     cocos2d::CCNode *_winNode, *_loseNode;
-    
-    cocos2d::CCMenuItem *_enableMusic, *_disableMusic;
     
     int _remainClearNode;
 };
