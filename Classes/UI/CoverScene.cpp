@@ -105,9 +105,9 @@ void CoverScene::onClickBtn(cocos2d::CCNode* node) {
         
         CCDirector::sharedDirector()->replaceScene(trans);
 	} else if (tag == 1) {
-        SelectStageScene* selectStage = SelectStageScene::create();
+        SelectLevelScene* selectLevel = SelectLevelScene::create();
         
-        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectStage);
+        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectLevel);
         
         CCDirector::sharedDirector()->replaceScene(trans);
 	}

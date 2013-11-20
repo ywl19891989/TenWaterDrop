@@ -232,6 +232,7 @@
 		379BB9D317F03F3700829B88 /* CCSGUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* CCSGUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* CCSSceneReader.cpp */; };
 		5C986B0F183C5C4600714A2A /* MusicBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C986B0D183C5C4600714A2A /* MusicBtn.cpp */; };
+		5C986B14183C5F1700714A2A /* GridSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C986B13183C5F1700714A2A /* GridSprite.cpp */; };
 		5CA0A1441834814F00C22BB2 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */; };
 		5CA0A1451834814F00C22BB2 /* ResourceName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1391834814F00C22BB2 /* ResourceName.cpp */; };
 		5CA0A1461834814F00C22BB2 /* ClassicGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A13C1834814F00C22BB2 /* ClassicGameScene.cpp */; };
@@ -741,6 +742,8 @@
 		379BB99417F03F3700829B88 /* CCSSceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSSceneReader.h; sourceTree = "<group>"; };
 		5C986B0D183C5C4600714A2A /* MusicBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicBtn.cpp; sourceTree = "<group>"; };
 		5C986B0E183C5C4600714A2A /* MusicBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicBtn.h; sourceTree = "<group>"; };
+		5C986B11183C5EF100714A2A /* GridSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridSprite.h; sourceTree = "<group>"; };
+		5C986B13183C5F1700714A2A /* GridSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GridSprite.cpp; sourceTree = "<group>"; };
 		5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		5CA0A1371834814F00C22BB2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CA0A1391834814F00C22BB2 /* ResourceName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceName.cpp; sourceTree = "<group>"; };
@@ -1769,16 +1772,18 @@
 				5CA0A13E1834814F00C22BB2 /* CoverScene.cpp */,
 				5CA0A13F1834814F00C22BB2 /* CoverScene.h */,
 				5CA0A1621835C89E00C22BB2 /* dialog */,
+				5C986B13183C5F1700714A2A /* GridSprite.cpp */,
+				5C986B11183C5EF100714A2A /* GridSprite.h */,
 				5CA0A17218360A1B00C22BB2 /* LevelGameScene.cpp */,
 				5CA0A17318360A1B00C22BB2 /* LevelGameScene.h */,
+				5C986B0D183C5C4600714A2A /* MusicBtn.cpp */,
+				5C986B0E183C5C4600714A2A /* MusicBtn.h */,
 				5CA0A1401834814F00C22BB2 /* ReMainWaterNumSprite.cpp */,
 				5CA0A1411834814F00C22BB2 /* ReMainWaterNumSprite.h */,
 				5CA0A17818360A9000C22BB2 /* SelectLevelScene.cpp */,
 				5CA0A17618360A6E00C22BB2 /* SelectLevelScene.h */,
 				5CA0A1421834814F00C22BB2 /* WaterSprite.cpp */,
 				5CA0A1431834814F00C22BB2 /* WaterSprite.h */,
-				5C986B0D183C5C4600714A2A /* MusicBtn.cpp */,
-				5C986B0E183C5C4600714A2A /* MusicBtn.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2099,6 +2104,7 @@
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
+				5C986B14183C5F1700714A2A /* GridSprite.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
 				379BB99517F03F3700829B88 /* CCActionFrame.cpp in Sources */,
 				379BB99617F03F3700829B88 /* CCActionFrameEasing.cpp in Sources */,

@@ -15,15 +15,16 @@
 #include "LevelUtil.h"
 #include "cocos-ext.h"
 #include "MusicBtn.h"
+#include "LevelGameScene.h"
 
 USING_NS_CC;
 USING_NS_RES;
 
 /////////////////////////////////////////////////
-/////////////// SelectStageScene ////////////////
+/////////////// SelectLevelScene ////////////////
 /////////////////////////////////////////////////
 
-bool SelectStageScene::init(){
+bool SelectLevelScene::init(){
     
     if(!CCScene::init()){
         return false;
@@ -41,7 +42,7 @@ bool SelectStageScene::init(){
 	CCMenuItem* backItem = UIUtil::getSingleImageBtn(
                                                      Images::common::back);
 	menu->addChild(backItem);
-	backItem->setTarget(this, menu_selector(SelectStageScene::onClickBtn));
+	backItem->setTarget(this, menu_selector(SelectLevelScene::onClickBtn));
 	backItem->setTag(-1);
 	backItem->setAnchorPoint(ccp(1, 0));
     LayoutUtil::layoutTo(backItem, 0, 1, bg, 0, 1, 4, -4);
@@ -55,14 +56,14 @@ bool SelectStageScene::init(){
     LayoutUtil::layoutToParentCenter(_stageClickedImgMask, _stageClickedImg);
     
     CCMenuItem* stageItem = CCMenuItemSprite::create(_stageImg, _stageClickedImg);
-    stageItem->setTarget(this, menu_selector(SelectStageScene::onClickBtn));
+    stageItem->setTarget(this, menu_selector(SelectLevelScene::onClickBtn));
     stageItem->setScale(1.3);
     stageItem->setTag(1);
     menu->addChild(stageItem);
     LayoutUtil::layoutToParentCenter(stageItem, this);
     
     CCMenuItem* leftArrow = UIUtil::getSingleImageBtn(Images::selectLevel::icon_arrow);
-    leftArrow->setTarget(this, menu_selector(SelectStageScene::prev));
+    leftArrow->setTarget(this, menu_selector(SelectLevelScene::prev));
     menu->addChild(leftArrow);
     LayoutUtil::layoutTo(leftArrow, 1, 0.5, stageItem, 0, 0.5, -18);
     
@@ -74,7 +75,7 @@ bool SelectStageScene::init(){
     
     
     CCMenuItem* rightArrow = UIUtil::getSingleImageBtn(Images::selectLevel::icon_arrow);
-    rightArrow->setTarget(this, menu_selector(SelectStageScene::next));
+    rightArrow->setTarget(this, menu_selector(SelectLevelScene::next));
     menu->addChild(rightArrow);
     rightArrow->setScaleX(-1);
     LayoutUtil::layoutTo(rightArrow, 0, 0.5, stageItem, 1, 0.5, 18);
@@ -100,17 +101,17 @@ bool SelectStageScene::init(){
     addChild(musicBtn, 1);
 	LayoutUtil::layoutTo(musicBtn, 0, 0, bg, 0, 0, 5, 5);
     
-    _curStage = 0;
+    _curLevel = 0;
     
     return true;
 }
 
-void SelectStageScene::setCurStage(int stage){
-    _curStage = stage - 1;
-    updateStage();
+void SelectLevelScene::setCurLevel(int level){
+    _curLevel = level - 1;
+    updateLevel();
 }
 
-void SelectStageScene::onClickBtn(cocos2d::CCNode *node){
+void SelectLevelScene::onClickBtn(cocos2d::CCNode *node){
     
     int tag = node->getTag();
     
@@ -121,7 +122,7 @@ void SelectStageScene::onClickBtn(cocos2d::CCNode *node){
     
         CCDirector::sharedDirector()->replaceScene(trans);
     }else if (tag == 1){
-        SelectLevelScene* selectLevel = SelectLevelScene::create(_curStage + 1);
+        SelectStageScene* selectLevel = SelectStageScene::create(_curLevel + 1);
         
         CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectLevel);
         
@@ -129,49 +130,49 @@ void SelectStageScene::onClickBtn(cocos2d::CCNode *node){
     }
 }
 
-void SelectStageScene::next(){
-    _curStage++;
-    _curStage = _curStage % 11;
-    updateStage();
+void SelectLevelScene::next(){
+    _curLevel++;
+    _curLevel = _curLevel % 11;
+    updateLevel();
 }
 
-void SelectStageScene::prev(){
-    _curStage--;
-    _curStage += 11;
-    _curStage = _curStage % 11;
-    updateStage();
+void SelectLevelScene::prev(){
+    _curLevel--;
+    _curLevel += 11;
+    _curLevel = _curLevel % 11;
+    updateLevel();
 }
 
-void SelectStageScene::updateStage(){
+void SelectLevelScene::updateLevel(){
     char temp[128];
-    sprintf(temp, "Images/selectLevel/level%d.png", _curStage + 1);
+    sprintf(temp, "Images/selectLevel/level%d.png", _curLevel + 1);
     CCTexture2D* tex = CCTextureCache::sharedTextureCache()->addImage(temp);
     _stageImg->setTexture(tex);
     _stageClickedImg->setTexture(tex);
     _stageClickedImgMask->setTexture(tex);
     
-    sprintf(temp, "%02d/11", _curStage + 1);
+    sprintf(temp, "%02d/11", _curLevel + 1);
     _stageIndexText->setString(temp);
 }
 
 /////////////////////////////////////////////////
-/////////////// SelectLevelScene ////////////////
+/////////////// SelectStageScene ////////////////
 /////////////////////////////////////////////////
 
-SelectLevelScene* SelectLevelScene::create(int stage){
-    SelectLevelScene* selectLevel = new SelectLevelScene();
-    selectLevel->init(stage);
-    selectLevel->autorelease();
-    return selectLevel;
+SelectStageScene* SelectStageScene::create(int level){
+    SelectStageScene* selectStage = new SelectStageScene();
+    selectStage->init(level);
+    selectStage->autorelease();
+    return selectStage;
 }
 
-bool SelectLevelScene::init(int stage){
+bool SelectStageScene::init(int level){
     
     if(!CCScene::init()){
         return false;
     }
     
-    _selectStage = stage;
+    _selectLevel = level;
     
     CCSprite* bg = CCSprite::create(Images::game::game_bg_jpg);
 	addChild(bg, -1);
@@ -185,7 +186,7 @@ bool SelectLevelScene::init(int stage){
 	CCMenuItem* backItem = UIUtil::getSingleImageBtn(
                                                      Images::common::back);
 	menu->addChild(backItem);
-	backItem->setTarget(this, menu_selector(SelectLevelScene::onClickBtn));
+	backItem->setTarget(this, menu_selector(SelectStageScene::onClickBtn));
 	backItem->setTag(-1);
 	backItem->setAnchorPoint(ccp(1, 0));
     LayoutUtil::layoutTo(backItem, 0, 1, bg, 0, 1, 4, -4);
@@ -206,21 +207,15 @@ bool SelectLevelScene::init(int stage){
     _midArea->setContentSize(midSize);
     addChild(_midArea, 1);
     LayoutUtil::layoutToCenter(_midArea, bg, 0, -30);
-    
-    _userCurLevel = LevelUtil::getUserCurStageLevel(_selectStage);
-    
-    int totalCount = LevelUtil::getStageLevelCount(_selectStage);
-    
-    _totalPages = totalCount/16 + (totalCount % 16 == 0 ? 0 : 1);
+
     
     for (int i = 0; i < 16; i++) {
-        int index = i + _curPage * 16;
         
         int row = i / 4;
         int col = i % 4;
         
         _grids[i] = UIUtil::getSingleImageBtn(Images::selectLevel::unlock);
-        _grids[i]->setTarget(this, menu_selector(SelectLevelScene::onClickBtn));
+        _grids[i]->setTarget(this, menu_selector(SelectStageScene::onClickBtn));
         menu->addChild(_grids[i]);
         LayoutUtil::layoutTo(_grids[i], 0.5, 0.5, _midArea, 0.5, 1, (col - 1.5f) * (midSize.width * 0.25f), (-row - 0.5) * (midSize.height * 0.25f));
         
@@ -233,12 +228,11 @@ bool SelectLevelScene::init(int stage){
         menu->addChild(_gridLocks[i]);
         LayoutUtil::layoutToCenter(_gridLocks[i], _grids[i]);
         
-        _grids[i]->setVisible(index + 1 <= _userCurLevel);
-        _gridLocks[i]->setVisible(index + 1 > _userCurLevel && index < totalCount);
+        _grids[i]->setVisible(false);
     }
     
     CCMenuItem* leftArrow = UIUtil::getSingleImageBtn(Images::selectLevel::icon_arrow);
-    leftArrow->setTarget(this, menu_selector(SelectLevelScene::prev));
+    leftArrow->setTarget(this, menu_selector(SelectStageScene::prev));
     menu->addChild(leftArrow);
     LayoutUtil::layoutTo(leftArrow, 1, 0.5, _midArea, 0, 0.5, 0);
     
@@ -250,7 +244,7 @@ bool SelectLevelScene::init(int stage){
     
     
     CCMenuItem* rightArrow = UIUtil::getSingleImageBtn(Images::selectLevel::icon_arrow);
-    rightArrow->setTarget(this, menu_selector(SelectLevelScene::next));
+    rightArrow->setTarget(this, menu_selector(SelectStageScene::next));
     menu->addChild(rightArrow);
     rightArrow->setScaleX(-1);
     LayoutUtil::layoutTo(rightArrow, 0, 0.5, _midArea, 1, 0.5, 0);
@@ -270,53 +264,65 @@ bool SelectLevelScene::init(int stage){
     char temp[32];
     sprintf(temp, "%d/%d", _curPage + 1, _totalPages);
     
-    _indexText = CCLabelTTF::create(temp, "arial", 26);
+    _indexText = CCLabelTTF::create("1/1", "arial", 26);
     _indexText->setAnchorPoint(ccp(1, 0));
     addChild(_indexText, 1);
     LayoutUtil::layoutTo(_indexText, 1, 0.5, numBg, 0.7, 0.5, 0, 0);
     
-    sprintf(temp, "难度:%02d/11", _selectStage);
+    sprintf(temp, "难度:%02d/11", _selectLevel);
     subTitleText->setString(temp);
     
     MusicBtn* musicBtn = MusicBtn::create();
     addChild(musicBtn, 1);
 	LayoutUtil::layoutTo(musicBtn, 0, 0, bg, 0, 0, 5, 5);
     
+    updateStage();
+    
     return true;
 }
 
-void SelectLevelScene::onClickBtn(cocos2d::CCNode *node){
+void SelectStageScene::onClickBtn(cocos2d::CCNode *node){
     
     int tag = node->getTag();
     
     if(tag == -1){
-        SelectStageScene* selectStage = SelectStageScene::create();
-        selectStage->setCurStage(_selectStage);
-        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectStage);
+        SelectLevelScene* selectLevel= SelectLevelScene::create();
+        selectLevel->setCurLevel(_selectLevel);
+        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, selectLevel);
         CCDirector::sharedDirector()->replaceScene(trans);
     }else if (tag >= 0){
-        
+        CCLOG("clicked %d level %d, stage %d", tag, _selectLevel, tag + 1);
+        LevelGameScene* levelGame = LevelGameScene::create();
+        levelGame->setData(_selectLevel, tag + 1);
+        CCTransitionFade* trans = CCTransitionFade::create(Constants::REPLACE_SCENE_TIME, levelGame);
+        CCDirector::sharedDirector()->replaceScene(trans);
     }
 }
 
-void SelectLevelScene::next(){
+void SelectStageScene::next(){
     _curPage++;
     _curPage = _curPage % _totalPages;
     updateStage();
 }
 
-void SelectLevelScene::prev(){
+void SelectStageScene::prev(){
     _curPage--;
     _curPage += _totalPages;
     _curPage = _curPage % _totalPages;
     updateStage();
 }
 
-void SelectLevelScene::updateStage(){
+void SelectStageScene::updateStage(){
     
     char temp[64];
     
-    int totalCount = LevelUtil::getStageLevelCount(_selectStage);
+    _userCurStage = LevelUtil::getUserCurLevelStage(_selectLevel);
+    
+    int totalCount = LevelUtil::getLevelStageCount(_selectLevel);
+    
+    _totalPages = totalCount/16 + (totalCount % 16 == 0 ? 0 : 1);
+    
+    CCLOG("level %d, stageCount %d, pages %d", _selectLevel, totalCount, _totalPages);
     
     for (int i = 0; i < 16; i++) {
         int index = i + _curPage * 16;
@@ -325,8 +331,9 @@ void SelectLevelScene::updateStage(){
         
         _gridTexts[i]->setString(temp);
         
-        _grids[i]->setVisible(index + 1 <= _userCurLevel);
-        _gridLocks[i]->setVisible(index + 1 > _userCurLevel && index < totalCount);
+        _grids[i]->setVisible(index + 1 <= _userCurStage);
+        _gridLocks[i]->setVisible(index + 1 > _userCurStage && index < totalCount);
+        _grids[i]->setTag(index);
     }
     
     sprintf(temp, "%d/%d", _curPage + 1, _totalPages);

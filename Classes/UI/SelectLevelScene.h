@@ -11,9 +11,9 @@
 
 #include "cocos2d.h"
 
-class SelectStageScene : public cocos2d::CCScene {
+class SelectLevelScene : public cocos2d::CCScene {
 public:
-    CREATE_FUNC(SelectStageScene);
+    CREATE_FUNC(SelectLevelScene);
     bool init();
     
     void onClickBtn(cocos2d::CCNode* node);
@@ -21,19 +21,19 @@ public:
     void prev();
     void next();
     
-    void updateStage();
+    void updateLevel();
     
-    void setCurStage(int stage);
+    void setCurLevel(int stage);
     
 private:
-    int _curStage;
+    int _curLevel;
     cocos2d::CCSprite *_stageImg, *_stageClickedImg, *_stageClickedImgMask;
     cocos2d::CCLabelTTF *_stageIndexText;
 };
 
-class SelectLevelScene : public cocos2d::CCScene {
+class SelectStageScene : public cocos2d::CCScene {
 public:
-    static SelectLevelScene* create(int stage);
+    static SelectStageScene* create(int level);
     bool init(int stage);
     
     void onClickBtn(cocos2d::CCNode* node);
@@ -44,7 +44,7 @@ public:
     void updateStage();
     
 private:
-    int _selectStage, _userCurLevel, _curPage, _totalPages;
+    int _selectLevel, _userCurStage, _curPage, _totalPages;
     cocos2d::CCNode *_midArea;
     cocos2d::CCMenuItem* _grids[16];
     cocos2d::CCMenuItem* _gridLocks[16];

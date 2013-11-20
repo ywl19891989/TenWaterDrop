@@ -11,18 +11,18 @@
 
 USING_NS_CC;
 
-std::vector<LevelInfo>* LevelUtil::_stages[LEVEL_COUNT] = {NULL};
+std::vector<StageInfo>* LevelUtil::_levels[LEVEL_COUNT] = {NULL};
 
-void LevelUtil::loadStage(int stage){
-    if(stage > 0 && stage <= LEVEL_COUNT && _stages[stage - 1] == NULL){
-        readInStage(stage);
+void LevelUtil::loadLevel(int level){
+    if(level > 0 && level <= LEVEL_COUNT && _levels[level - 1] == NULL){
+        readInLevel(level);
     }
 }
 
-int LevelUtil::getUserCurStageLevel(int stage){
+int LevelUtil::getUserCurLevelStage(int level){
     
     char temp[128];
-    sprintf(temp, "user_stage_%d_level", stage);
+    sprintf(temp, "user_level_%d_stage", level);
     
     CCUserDefault* save = CCUserDefault::sharedUserDefault();
     int curLevel = save->getIntegerForKey(temp, 1);
@@ -30,50 +30,51 @@ int LevelUtil::getUserCurStageLevel(int stage){
     return curLevel;
 }
 
-void LevelUtil::setUserCurStageLevel(int stage, int level){
+void LevelUtil::setUserCurLevelStage(int level, int stage){
     
     char temp[128];
-    sprintf(temp, "user_stage_%d_level", stage);
+    sprintf(temp, "user_level_%d_stage", level);
     
     CCUserDefault* save = CCUserDefault::sharedUserDefault();
-    save->setIntegerForKey(temp, level);
+    save->setIntegerForKey(temp, stage);
+    CCLOG("set %s, %d", temp, stage);
 }
 
-int LevelUtil::getStageCount(){
+int LevelUtil::getLevelCount(){
     return LEVEL_COUNT;
 }
 
-int LevelUtil::getStageLevelCount(int stage){
+int LevelUtil::getLevelStageCount(int level){
     
-    loadStage(stage);
+    loadLevel(level);
     
-    if(stage > 0 && stage <= LEVEL_COUNT){
-        return _stages[stage - 1]->size();
+    if(level > 0 && level <= LEVEL_COUNT){
+        return _levels[level - 1]->size();
     }
     
     return 0;
 }
 
-LevelInfo* LevelUtil::getStageLevelInfo(int stage, int level){
+StageInfo* LevelUtil::getLevelStageInfo(int level, int stage){
     
-    loadStage(stage);
+    loadLevel(level);
     
-    if(level > 0 && level <= _stages[stage - 1]->size()){
-        return &_stages[stage - 1]->at(level);
+    if(level > 0 && level <= _levels[level - 1]->size()){
+        return &_levels[level - 1]->at(stage - 1);
     }
     
     return NULL;
 }
 
-void LevelUtil::readInStage(int stage){
+void LevelUtil::readInLevel(int level){
     
     char temp[128];
     
-    sprintf(temp, "level/LevelPack%d.xml", stage);
+    sprintf(temp, "level/LevelPack%d.xml", level);
+    CCLOG("readinLevel %d, file: %s", level, temp);
+    _levels[level - 1] = new std::vector<StageInfo>;
     
-    _stages[stage - 1] = new std::vector<LevelInfo>;
-    
-    std::vector<LevelInfo>* curLevel = _stages[stage - 1];
+    std::vector<StageInfo>* curLevel = _levels[level - 1];
     
     tinyxml2::XMLElement* curNode = NULL;
     tinyxml2::XMLElement* rootNode = NULL;
@@ -108,7 +109,7 @@ void LevelUtil::readInStage(int stage){
         
         // find the node
         curNode = rootNode->FirstChildElement();
-        LevelInfo info;
+        StageInfo info;
         if (!curNode)
         {
             // There is not xml node, delete xml file.
