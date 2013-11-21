@@ -123,6 +123,11 @@
 			<locationURI>COCOS2DX/extensions</locationURI>
 		</link>
 		<link>
+			<name>plugin-x</name>
+			<type>2</type>
+			<location>/Users/wenlong/wenlong/cocos2d-x-2.2/plugin/publish</location>
+		</link>
+		<link>
 			<name>scripting</name>
 			<type>2</type>
 			<locationURI>COCOS2DX/scripting</locationURI>

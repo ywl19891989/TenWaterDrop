@@ -13,6 +13,12 @@
 #include "Constants.h"
 #include "LevelGameScene.h"
 #include "SelectLevelScene.h"
+#include "ProtocolAds.h"
+#include "PluginManager.h"
+#include <string>
+#include <map>
+
+using namespace cocos2d::plugin;
 
 USING_NS_CC;
 using namespace Resources;
@@ -72,6 +78,17 @@ bool CoverScene::init() {
 	menu->addChild(help);
 	help->setTarget(this, menu_selector(CoverScene::onClickHelp));
 	LayoutUtil::layoutTo(help, 1, 0, bg, 1, 0, -5, 5);
+
+
+	ProtocolAds* m_pAdmob =
+			dynamic_cast<ProtocolAds*>(PluginManager::getInstance()->loadPlugin(
+					"AdsAdmob"));
+	TAdsDeveloperInfo devInfo;
+	devInfo["AdmobID"] = "a1516fb6b16b12f";
+	m_pAdmob->configDeveloperInfo(devInfo);
+	m_pAdmob->setAdsListener(NULL);
+	m_pAdmob->setDebugMode(true);
+	m_pAdmob->showAds(ProtocolAds::kBannerAd, 0, ProtocolAds::kPosBottomRight);
 
 	return true;
 }

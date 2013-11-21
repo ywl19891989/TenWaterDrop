@@ -2,55 +2,59 @@
 #include "CoverScene.h"
 #include "Constants.h"
 
+#include <stdlib.h> /*用到了srand函数，所以要有这个头文件*/
+#include <stdio.h>
+
 USING_NS_CC;
+
 
 AppDelegate::AppDelegate() {
 
 }
 
-AppDelegate::~AppDelegate() 
-{
+AppDelegate::~AppDelegate() {
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    // initialize director
-    CCDirector* pDirector = CCDirector::sharedDirector();
-    CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
+	// initialize director
+	CCDirector* pDirector = CCDirector::sharedDirector();
+	CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
 
-    pDirector->setOpenGLView(pEGLView);
+	pDirector->setOpenGLView(pEGLView);
 
-    pEGLView->setDesignResolutionSize(480, 720, kResolutionShowAll);
-	
-    // turn on display FPS
-    pDirector->setDisplayStats(false);
+	pEGLView->setDesignResolutionSize(480, 720, kResolutionShowAll);
 
-    // set FPS. the default value is 1.0/60 if you don't call this
-    pDirector->setAnimationInterval(1.0 / 60);
-    
-    srand( time(NULL));
-    Constants::init();
+	// turn on display FPS
+	pDirector->setDisplayStats(false);
 
-    // create a scene. it's an autorelease object
-    CoverScene *pScene = CoverScene::create();
+	// set FPS. the default value is 1.0/60 if you don't call this
+	pDirector->setAnimationInterval(1.0 / 60);
 
-    // run
-    pDirector->runWithScene(pScene);
+	srand(time(NULL));
+	Constants::init();
 
-    return true;
+
+	// create a scene. it's an autorelease object
+	CoverScene *pScene = CoverScene::create();
+
+	// run
+	pDirector->runWithScene(pScene);
+
+	return true;
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
-    CCDirector::sharedDirector()->stopAnimation();
+	CCDirector::sharedDirector()->stopAnimation();
 
-    // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+	// if you use SimpleAudioEngine, it must be pause
+	// SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
-    CCDirector::sharedDirector()->startAnimation();
+	CCDirector::sharedDirector()->startAnimation();
 
-    // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+	// if you use SimpleAudioEngine, it must resume here
+	// SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
