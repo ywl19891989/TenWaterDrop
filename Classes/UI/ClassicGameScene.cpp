@@ -15,6 +15,7 @@
 #include "ClassicResultDialog.h"
 #include "Constants.h"
 #include "MusicBtn.h"
+#include "LevelUtil.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -109,11 +110,60 @@ bool ClassicGameScene::init() {
     _dropArrays = CCArray::create();
     _dropArrays->retain();
     
+    _topLevelText = CCLabelTTF::create("11", "arial-bold", 28);
+    _topLevelText->setAnchorPoint(ccp(1, 0.5));
+    _topLevelText->setColor(ccBLACK);
+    addChild(_topLevelText, 1);
+    LayoutUtil::layoutTo(_topLevelText, 1, 0.5, levelInfo, 1, 0.75, 10, 0);
+    
+    _curLevelText = CCLabelTTF::create("1", "arial-bold", 28);
+    _curLevelText->setAnchorPoint(ccp(1, 0.5));
+    _curLevelText->setColor(ccBLACK);
+    addChild(_curLevelText, 1);
+    LayoutUtil::layoutTo(_curLevelText, 1, 0.5, levelInfo, 1, 0.25, 10, 0);
+    
     _remainClearNode = 0;
+    
+    int curStage = LevelUtil::getUserClassicStage();
+    setData(curStage);
 
     scheduleUpdate();
 
 	return true;
+}
+
+void ClassicGameScene::setData(int stage){
+    
+    _curStage = stage;
+    
+    int totalStageCount = LevelUtil::getClassicStageCount();
+    StageInfo* info = LevelUtil::getClassicStageInfo(stage);
+    
+    _remainWaterNum = info->tapCounts;
+    _remainNumText->setRemainWaterNum(_remainWaterNum);
+    
+    int len = info->zappers.length();
+    
+    CCLOG("%d, %s", len, info->zappers.c_str());
+    
+    for (int i = 0; i < len; i++) {
+        int row = i / 6;
+        int col = i % 6;
+        int val = info->zappers[i] - '0';
+
+        int index = col + row * COL_NUM;
+        
+        _waterNums[index] = val;
+        _waters[index]->setWaterNum(_waterNums[index]);
+    }
+    
+    char temp[32];
+    
+    sprintf(temp, "%d", _curStage);
+    _curLevelText->setString(temp);
+    
+    sprintf(temp, "%d", totalStageCount);
+    _topLevelText->setString(temp);
 }
 
 void ClassicGameScene::onEnter(){
@@ -148,6 +198,11 @@ void ClassicGameScene::update(float dt){
     
     if(_remainClearNode == 0 && _dropArrays->count() == 0 && (_remainWaterNum == 0 || hasNoGridWater)){
         bool isWin = hasNoGridWater;
+        
+        if(isWin){
+            LevelUtil::setUserClassicStage(LevelUtil::getUserClassicStage() + 1);
+        }
+        
         ClassicResultDialog* dialog = ClassicResultDialog::create(isWin);
         addChild(dialog, 100);
         

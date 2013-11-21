@@ -13,6 +13,10 @@
 
  
 namespace Resources {
+ 
+    namespace Classic {
+        extern const char * classic_xml;
+    }
     extern const char * CloseNormal;
     extern const char * CloseSelected;
     extern const char * HelloWorld;
@@ -107,7 +111,7 @@ namespace Resources {
         }
     }
  
-    namespace level {
+    namespace Level {
         extern const char * LevelPack1_xml;
         extern const char * LevelPack10_xml;
         extern const char * LevelPack11_xml;

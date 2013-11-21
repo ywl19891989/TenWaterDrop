@@ -10,6 +10,10 @@
 
  
 namespace Resources {
+ 
+    namespace Classic {
+        const char * classic_xml = "Classic/classic.xml";
+    }
     const char * CloseNormal = "CloseNormal.png";
     const char * CloseSelected = "CloseSelected.png";
     const char * HelloWorld = "HelloWorld.png";
@@ -104,17 +108,17 @@ namespace Resources {
         }
     }
  
-    namespace level {
-        const char * LevelPack1_xml = "level/LevelPack1.xml";
-        const char * LevelPack10_xml = "level/LevelPack10.xml";
-        const char * LevelPack11_xml = "level/LevelPack11.xml";
-        const char * LevelPack2_xml = "level/LevelPack2.xml";
-        const char * LevelPack3_xml = "level/LevelPack3.xml";
-        const char * LevelPack4_xml = "level/LevelPack4.xml";
-        const char * LevelPack5_xml = "level/LevelPack5.xml";
-        const char * LevelPack6_xml = "level/LevelPack6.xml";
-        const char * LevelPack7_xml = "level/LevelPack7.xml";
-        const char * LevelPack8_xml = "level/LevelPack8.xml";
-        const char * LevelPack9_xml = "level/LevelPack9.xml";
+    namespace Level {
+        const char * LevelPack1_xml = "Level/LevelPack1.xml";
+        const char * LevelPack10_xml = "Level/LevelPack10.xml";
+        const char * LevelPack11_xml = "Level/LevelPack11.xml";
+        const char * LevelPack2_xml = "Level/LevelPack2.xml";
+        const char * LevelPack3_xml = "Level/LevelPack3.xml";
+        const char * LevelPack4_xml = "Level/LevelPack4.xml";
+        const char * LevelPack5_xml = "Level/LevelPack5.xml";
+        const char * LevelPack6_xml = "Level/LevelPack6.xml";
+        const char * LevelPack7_xml = "Level/LevelPack7.xml";
+        const char * LevelPack8_xml = "Level/LevelPack8.xml";
+        const char * LevelPack9_xml = "Level/LevelPack9.xml";
     }
 }

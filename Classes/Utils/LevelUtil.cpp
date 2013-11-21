@@ -8,10 +8,34 @@
 
 #include "LevelUtil.h"
 #include "cocos2d.h"
+#include "ResourceName.h"
 
 USING_NS_CC;
+USING_NS_RES;
 
 std::vector<StageInfo>* LevelUtil::_levels[LEVEL_COUNT] = {NULL};
+std::vector<StageInfo> LevelUtil::_classic;
+
+StageInfo* LevelUtil::getClassicStageInfo(int stage){
+    
+    if(_classic.empty()){
+        readInClassic();
+    }
+    
+    if(stage > 0 && stage <= getClassicStageCount()){
+        return &_classic[stage - 1];
+    }
+    
+    return NULL;
+}
+
+int LevelUtil::getClassicStageCount(){
+    if(_classic.empty()){
+        readInClassic();
+    }
+    
+    return _classic.size();
+}
 
 void LevelUtil::loadLevel(int level){
     if(level > 0 && level <= LEVEL_COUNT && _levels[level - 1] == NULL){
@@ -38,9 +62,28 @@ void LevelUtil::setUserCurLevelStage(int level, int stage){
     CCUserDefault* save = CCUserDefault::sharedUserDefault();
     
     int oldStage = getUserCurLevelStage(level);
-    if(oldStage < stage){
+    if(oldStage < stage && stage <= getLevelStageCount(level)){
         save->setIntegerForKey(temp, stage);
         CCLOG("set %s, %d", temp, stage);
+    }
+}
+
+int LevelUtil::getUserClassicStage(){
+
+    CCUserDefault* save = CCUserDefault::sharedUserDefault();
+    int curLevel = save->getIntegerForKey("user_classic_stage", 1);
+    
+    return curLevel;
+}
+
+void LevelUtil::setUserClassicStage(int stage){
+
+    CCUserDefault* save = CCUserDefault::sharedUserDefault();
+    
+    int oldStage = getUserClassicStage();
+    if(oldStage < stage && stage <= getClassicStageCount()){
+        save->setIntegerForKey("user_classic_stage", stage);
+        CCLOG("set user_classic_stage, %d", stage);
     }
 }
 
@@ -74,12 +117,20 @@ void LevelUtil::readInLevel(int level){
     
     char temp[128];
     
-    sprintf(temp, "level/LevelPack%d.xml", level);
+    sprintf(temp, "Level/LevelPack%d.xml", level);
     CCLOG("readinLevel %d, file: %s", level, temp);
     _levels[level - 1] = new std::vector<StageInfo>;
     
     std::vector<StageInfo>* curLevel = _levels[level - 1];
     
+    readInXML(temp, curLevel);
+}
+
+void LevelUtil::readInClassic(){
+    readInXML(Classic::classic_xml, &_classic);
+}
+
+void LevelUtil::readInXML(const char * file, std::vector<StageInfo>* curData){
     tinyxml2::XMLElement* curNode = NULL;
     tinyxml2::XMLElement* rootNode = NULL;
     
@@ -91,7 +142,7 @@ void LevelUtil::readInLevel(int level){
         
         unsigned long nSize;
         
-        const char* pXmlBuffer = (const char*)CCFileUtils::sharedFileUtils()->getFileData(temp, "rb", &nSize);
+        const char* pXmlBuffer = (const char*)CCFileUtils::sharedFileUtils()->getFileData(file, "rb", &nSize);
         
         if(NULL == pXmlBuffer)
         {
@@ -129,8 +180,8 @@ void LevelUtil::readInLevel(int level){
             
             info.zappers = curNode->Attribute("zappers");
             info.solutions = curNode->Attribute("solutions");
-        
-            curLevel->push_back(info);
+            
+            curData->push_back(info);
             
             curNode = curNode->NextSiblingElement();
         }

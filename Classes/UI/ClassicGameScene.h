@@ -25,6 +25,8 @@ public:
     
     void update(float dt);
     
+    void setData(int stage);
+    
     void onExplodeEnd(WaterSprite* water);
     
     void clearNode(cocos2d::CCNode* node);
@@ -69,8 +71,9 @@ private:
     cocos2d::CCSprite *_gridBg;
     
     cocos2d::CCNode *_winNode, *_loseNode;
+    cocos2d::CCLabelTTF *_topLevelText, *_curLevelText;
     
-    int _remainClearNode;
+    int _remainClearNode, _curStage;
 };
 
 #endif /* CLASSICGAMESCENE_H_ */

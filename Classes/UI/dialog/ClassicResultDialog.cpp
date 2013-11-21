@@ -11,6 +11,8 @@
 #include "ResourceName.h"
 #include "LayoutUtil.h"
 #include "ClassicGameScene.h"
+#include "LevelUtil.h"
+#include "UIUtil.h"
 
 USING_NS_CC;
 USING_NS_RES;
@@ -29,36 +31,34 @@ bool ClassicResultDialog::init(bool isWin){
         return false;
     }
     
+    MenuDispatch* menu = MenuDispatch::create();
+    menu->setIsSwallowAll(true);
+    addChild(menu, 1);
+    
     if(isWin){
         CCSprite* bg = CCSprite::create(Images::game::dialogBg_win);
         addChild(bg, -1);
         setContentSize(bg->getContentSize());
         LayoutUtil::layoutToParentCenter(bg, this);
         
-        CCSprite* res = CCSprite::create(Images::game::classic_winFg);
-        addChild(res, 1);
-        LayoutUtil::layoutToCenter(res, bg, 0, -30);
+        CCMenuItem* item = UIUtil::getSingleImageBtn(Images::game::btn_next);
+        menu->registerBtn(item);
+        addChild(item, 1);
+        LayoutUtil::layoutToCenter(item, bg, 10, -50);
+        item->setTarget(this, menu_selector(ClassicResultDialog::onClickBtn));
     }else{
         CCSprite* bg = CCSprite::create(Images::game::dialogBg_lose);
         addChild(bg, -1);
         setContentSize(bg->getContentSize());
         LayoutUtil::layoutToParentCenter(bg, this);
         
-        CCSprite* res = CCSprite::create(Images::game::classic_loseFg);
-        addChild(res, 1);
-        LayoutUtil::layoutToCenter(res, bg, 0, -30);
+        CCMenuItem* item = UIUtil::getSingleImageBtn(Images::game::btn_retry);
+        menu->registerBtn(item);
+        addChild(item, 1);
+        LayoutUtil::layoutToCenter(item, bg, 10, -50);
+        item->setTarget(this, menu_selector(ClassicResultDialog::onClickBtn));
     }
     
-    MenuDispatch* menu = MenuDispatch::create();
-    menu->setIsSwallowAll(true);
-    addChild(menu, 1);
-    
-    CCMenuItem* item = CCMenuItem::create();
-    item->setContentSize(getContentSize());
-    addChild(item);
-    menu->registerBtn(item);
-    LayoutUtil::layoutToParentCenter(item, this);
-    item->setTarget(this, menu_selector(ClassicResultDialog::onClickBtn));
     
     _isWin = isWin;
     
