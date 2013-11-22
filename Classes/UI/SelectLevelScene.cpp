@@ -16,6 +16,7 @@
 #include "cocos-ext.h"
 #include "MusicBtn.h"
 #include "LevelGameScene.h"
+#include "AdUtil.h"
 
 USING_NS_CC;
 USING_NS_RES;
@@ -102,6 +103,8 @@ bool SelectLevelScene::init(){
 	LayoutUtil::layoutTo(musicBtn, 0, 0, bg, 0, 0, 5, 5);
     
     _curLevel = 0;
+    
+    AdUtil::showAd();
     
     return true;
 }
@@ -291,6 +294,8 @@ bool SelectStageScene::init(int level){
 	LayoutUtil::layoutTo(musicBtn, 0, 0, bg, 0, 0, 5, 5);
     
     updateStage();
+    
+    AdUtil::showAd();
     
     return true;
 }

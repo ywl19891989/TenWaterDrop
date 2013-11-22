@@ -16,6 +16,7 @@
 #include "Constants.h"
 #include "MusicBtn.h"
 #include "LevelUtil.h"
+#include "AdUtil.h"
 
 USING_NS_CC;
 using namespace Resources;
@@ -128,6 +129,8 @@ bool ClassicGameScene::init() {
     setData(curStage);
 
     scheduleUpdate();
+    
+    AdUtil::showAd();
 
 	return true;
 }
@@ -210,6 +213,8 @@ void ClassicGameScene::update(float dt){
         dialog->setAnchorPoint(ccp(0.5, 0.5));
         LayoutUtil::layoutToParentCenter(dialog, this, 0, -10);
         dialog->runAction(CCEaseElasticOut::create(CCScaleTo::create(0.6, 1)));
+        
+        AdUtil::showAd();
         
         unscheduleUpdate();
     }

@@ -22,6 +22,7 @@ LOCAL_SRC_FILES := 	hellocpp/main.cpp \
 					../../Classes//Utils/Constants.cpp \
 					../../Classes//Utils/LevelUtil.cpp \
 					../../Classes//Utils/UIUtil.cpp \
+					../../Classes//Utils/AdUtil.cpp \
 					../../Classes//Widgets/MenuDispatch.cpp 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \

@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "CoverScene.h"
 #include "Constants.h"
-
+#include "AdUtil.h"
 #include <stdlib.h> /*用到了srand函数，所以要有这个头文件*/
 #include <stdio.h>
 
@@ -33,6 +33,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	srand(time(NULL));
 	Constants::init();
 
+    AdUtil::showAd();
 
 	// create a scene. it's an autorelease object
 	CoverScene *pScene = CoverScene::create();

@@ -250,6 +250,7 @@
 		5C986B32183DAA1700714A2A /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C986B23183DAA1700714A2A /* iTunesArtwork@2x.png */; };
 		5C986B34183DAA2900714A2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C986B33183DAA2900714A2A /* Images.xcassets */; };
 		5C986B36183DBB0A00714A2A /* Classic in Resources */ = {isa = PBXBuildFile; fileRef = 5C986B35183DBB0A00714A2A /* Classic */; };
+		5C986C23183EEE2200714A2A /* AdUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C986C22183EEE2200714A2A /* AdUtil.cpp */; };
 		5CA0A1441834814F00C22BB2 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */; };
 		5CA0A1451834814F00C22BB2 /* ResourceName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A1391834814F00C22BB2 /* ResourceName.cpp */; };
 		5CA0A1461834814F00C22BB2 /* ClassicGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA0A13C1834814F00C22BB2 /* ClassicGameScene.cpp */; };
@@ -775,6 +776,8 @@
 		5C986B23183DAA1700714A2A /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = SOURCE_ROOT; };
 		5C986B33183DAA2900714A2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TenWaterDrop/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		5C986B35183DBB0A00714A2A /* Classic */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classic; sourceTree = "<group>"; };
+		5C986C20183EED2D00714A2A /* AdUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdUtil.h; sourceTree = "<group>"; };
+		5C986C22183EEE2200714A2A /* AdUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AdUtil.cpp; sourceTree = "<group>"; };
 		5CA0A1361834814F00C22BB2 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		5CA0A1371834814F00C22BB2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CA0A1391834814F00C22BB2 /* ResourceName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceName.cpp; sourceTree = "<group>"; };
@@ -1828,12 +1831,14 @@
 		5CA0A1561834973400C22BB2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5CA0A1571834976800C22BB2 /* UIUtil.cpp */,
-				5CA0A1581834976800C22BB2 /* UIUtil.h */,
+				5C986C22183EEE2200714A2A /* AdUtil.cpp */,
+				5C986C20183EED2D00714A2A /* AdUtil.h */,
 				5CA0A16C1835E95300C22BB2 /* Constants.cpp */,
 				5CA0A16D1835E95300C22BB2 /* Constants.h */,
 				5CA0A16F1836031000C22BB2 /* LevelUtil.cpp */,
 				5CA0A1701836031000C22BB2 /* LevelUtil.h */,
+				5CA0A1571834976800C22BB2 /* UIUtil.cpp */,
+				5CA0A1581834976800C22BB2 /* UIUtil.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2149,6 +2154,7 @@
 				1A8F3B76175E05DA00049216 /* BoneData.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
+				5C986C23183EEE2200714A2A /* AdUtil.cpp in Sources */,
 				1A8F3B79175E05DA00049216 /* extension.cpp in Sources */,
 				1A8F3B7A175E05DA00049216 /* Json.cpp in Sources */,
 				1A8F3B7B175E05DA00049216 /* RegionAttachment.cpp in Sources */,
